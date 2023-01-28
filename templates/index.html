@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}
+  <title>home</title>
+{% endblock %}
+{% block body %}
+   <h1>チャンネル一覧</h1>
+   <ul>
+    {% for channel in channels %}
+        <li>{{ channel.name }}</li>
+    {% endfor %}
+   </ul>
+{% endblock %}
