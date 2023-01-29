@@ -1,20 +1,3 @@
-from ast import Try
-from crypt import methods
-from datetime import timedelta
-from email import message
-from pyexpat.errors import messages
-from time import time
-import uuid
-from flask import Flask, request, redirect, render_template, session,flash
-
-from models import dbConnect
-
-
-
-app = Flask(__name__)#定型分
-app.secret_key = uuid.uuid4().hex #乱数により生成されるUUIDが4番目
-app.permanent_session_lifetime =timedelta(days=30)#30日でセッションが切れますよって文
-
 
 #＜メッセージ一覧機能＞ メッセージ追加も削除もされてない最初にチャットを開いた時の状態  詳細
 @app.route('/detail/<cid>')
