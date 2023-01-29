@@ -36,7 +36,7 @@ def add_channel():
         return render_template('error/error.html', error_message=error)
 
 # チャンネル編集
-app.route('/update_channel', methods=['POST'])
+@app.route('/update_channel', methods=['POST'])
 def update_channel():
     # uid = session.get("uid")
     # if uid is None:
@@ -54,16 +54,20 @@ def update_channel():
 
 # チャンネル削除
 # uidもmessageと一緒に返す
-@app.route('/detail/<cid>')
-def detail(cid):
+@app.route('/delete/<cid>')
+def delete_channel(cid):
     # uid = session.get("uid")
     # if uid is None:
     #     return redirect('/login')
-    cid = cid
-    channel = dbConnect.getChannelById(cid)
-    messages = dbConnect.getMessageAll(cid)
-
-    return render_template('detail.html', messages=messages, channel=channel)
+    # else:
+        # channel = dbConnect.getChannelById(cid)
+        # if channel["uid"] != uid:
+        #     flash('チャンネルは作成者のみ削除可能です')
+        #     return redirect ('/')
+        # else:
+        dbConnect.deleteChannel(cid)
+        channels = dbConnect.getChannelAll()
+        return render_template('index.html', channels=channels)
 
 
 #＜メッセージ一覧機能＞ メッセージ追加も削除もされてない最初にチャットを開いた時の状態  詳細
@@ -76,7 +80,7 @@ def detail(cid):
     channel =dbConnect.getChannelById(cid)
     messages =dbConnect.getMessageAll(cid)
     
-    return render_template('detail.html',messages=messages, channel=channel)
+    return render_template('detail.html', messages=messages, channel=channel)
 
 
 #＜メッセージの作成機能＞
@@ -99,8 +103,6 @@ def add_message():#messegeを送ったら（送信ボタン押したら）messeg
     return render_template('detail.html',messages=messages, channel=channel)#？？？？html以外の引数はよく分からない？？？？
 
 
-
-
 #＜メッセージの削除機能＞
 @app.route('/delete_message', methods=['POST'])
 def delete_message():
@@ -117,6 +119,7 @@ def delete_message():
     messages =dbConnect.getMessageAll(cid)
     
     return render_template('detail.html', messages=messages ,channle=channle)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

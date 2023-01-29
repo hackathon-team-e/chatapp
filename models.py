@@ -38,7 +38,7 @@ class dbConnect:
         try:
             conn = DB.getConnection()
             cur = conn.cursor()
-            sql = "INSERT INTO channels (name, abstract) VALUES (%s, %s, %s);"
+            sql = "INSERT INTO channels (name, abstract) VALUES (%s, %s);"
             cur.execute(sql, (newChannelName, newChannelDescription))
             conn.commit()
         except Exception as e:
@@ -49,12 +49,16 @@ class dbConnect:
 
     # チャンネル情報を更新
     def updateChannel(newChannelName, newChannelDescription, cid):
-        conn = DB.getConnection()
-        cur = conn.cursor()
-        sql = "UPDATE channels SET name=%s, abstract=%s WHERE id=%s;"
-        cur.execute(sql, (newChannelName, newChannelDescription, cid))
-        conn.commit()
-        cur.close()
+        try:
+            conn = DB.getConnection()
+            cur = conn.cursor()
+            sql = "UPDATE channels SET name=%s, abstract=%s WHERE id=%s;"
+            cur.execute(sql, (newChannelName, newChannelDescription, cid))
+            conn.commit()
+        except Exception as e:
+            print(e + 'が発生しています')
+        finally:
+            cur.close()
 
     # チャンネルIDを取得
     def getChannelById(cid):
@@ -76,7 +80,7 @@ class dbConnect:
         try:
             conn = DB.getConnection()
             cur = conn.cursor()
-            sql = "SELECT id,u.uid, user_name, message FROM messages AS m INNER JOIN users AS u ON m.uid = u.uid WHERE cid = %s;"
+            sql = "SELECT id, message FROM messages WHERE cid = %s;"
             cur.execute(sql, (cid))
             messages = cur.fetchall()
             return messages
@@ -122,7 +126,6 @@ class dbConnect:
             sql ="DELETE FROM messages WHERE id=%s;" #DELETEはテーブルを削除する messagesのテーブルからid=%sのものを削除するという命令 %s %はLIKE演算子 任意数 (0 文字を含む) の連続した文字に相当 sは文字列を意味
             cur.execute(sql(message_id))
             conn.comit()
-            cur.close()
         except Exception as e:
             print(e + 'が発生しています')
             return None
