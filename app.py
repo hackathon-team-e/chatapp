@@ -36,20 +36,21 @@ def add_channel():
         return render_template('error/error.html', error_message=error)
 
 # チャンネル編集
-@app.route('/update_channel', methods=['POST'])
+@app.route('/update_channel')
 def update_channel():
     # uid = session.get("uid")
     # if uid is None:
     #     return redirect('/login')
+    return render_template('update-channel.html')
 
-    cid = request.form.get('cid')
-    channel_name = request.form.get('channel-title')
-    channel_description = request.form.get('channel-description')
+    # cid = request.form.get('cid')
+    # channel_name = request.form.get('channel-title')
+    # channel_description = request.form.get('channel-description')
 
-    dbConnect.updateChannel(channel_name, channel_description, cid)
-    channel = dbConnect.getChannelById(cid)
-    messages = dbConnect.getMessageAll(cid)
-    return render_template('detail.html', messages=messages, channel=channel)
+    # dbConnect.updateChannel(channel_name, channel_description, cid)
+    # channel = dbConnect.getChannelById(cid)
+    # messages = dbConnect.getMessageAll(cid)
+    # return render_template('detail.html', messages=messages, channel=channel)
 
 
 # チャンネル削除
