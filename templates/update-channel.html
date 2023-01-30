@@ -1,16 +1,12 @@
 {% extends 'base.html' %}
 {% block title %}
-  <title>home</title>
+  <title>update-channel</title>
 {% endblock %}
 {% block body %}
-   <h1>チャンネル一覧</h1>
+   <h1>チャンネル編集</h1>
     <form action="/", method="post">
         <input type="text" placeholder="チャンネル名" class="channel-form-input" name="channel-title">
         <input type="text" placeholder="チャンネルの説明" class="channel-form-input" name="channel-description">
-        <button id="add-channel-confirmation-btn">追加</button>
+        <button id="add-channel-confirmation-btn">更新</button>
     </form>
-    {% for channel in channels %}
-        <p><a href="/detail/{{ channel.id }}">{{ channel.name }}</a></p>
-        <p><a href="/delete/{{ channel.id }}">削除</a></p>
-    {% endfor %}
 {% endblock %}

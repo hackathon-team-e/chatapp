@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}
+  <title>chatroom</title>
+{% endblock %}
+{% block body %}
+    <h1>{{ channel.name }}</h1>
+    <h3>{{ channel.abstract }}</h3>
+    <a href="/update_channel">編集</a>
+    {% for message in messages %}
+          <p>{{ message.message }}</p>  
+      {% endfor %}    
+{% endblock %}
