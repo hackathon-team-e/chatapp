@@ -5,8 +5,14 @@
 {% block body %}
     <h1>{{ channel.name }}</h1>
     <h3>{{ channel.abstract }}</h3>
-    <a href="/update_channel">編集</a>
+    <p><a href="/update_channel/{{ channel.id }}">チャンネル編集</a></p>
+    <p><a href="/">チャンネル一覧へ戻る</a></p>
+    <form action="/message", method="post">
+      <input type="text" placeholder="メッセージを入力" class="channel-form-input" name="message">
+      <input type="hidden" name="channel_id" value="{{ channel.id }}">
+      <button id="add-message-confirmation-btn">投稿</button>
+    </form> 
     {% for message in messages %}
-          <p>{{ message.message }}</p>  
-      {% endfor %}    
+      <p>{{ message.message }}</p>  
+    {% endfor %}    
 {% endblock %}
