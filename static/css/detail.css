@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+}
+
+#chat-container{
+  height: 100vh;
+  width: 100%;
+  /* padding-left: 70px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden; */
+}
+
+#channel-header {
+  font-size: 16px;
+}
+
+#messages {
+  min-height: 50vh;
+  padding-top: calc(8vh + 10px);
+  padding-right: 20px;
+  padding-bottom: calc(20vh + 10px);
+  padding-left: 20px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: 80%;
+  margin: auto;
+}
+
+.my-messages {
+  display: flex;
+}
+
+.box {
+  position: relative;
+  margin: 0;
+  border-radius: 30px;
+  font-size: 20px;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  margin-top: 10px;
+  max-width: 100%;
+}
+
+.box-right {
+  background-color: #A75D5D;
+  margin-left: auto;
+  margin-right: 30px;
+  color: #fff;
+}
+
+.message-content{
+  padding: 20px;/*文字や画像（コンテンツ）の外側に隙間を入れる*/
+}
+
+.other-messages {
+  display: flex;
+  flex-flow: column;
+}
+
+.box-left {
+  background-color: #EEE9E9;
+  margin-right: auto;
+  margin-left: 30px;
+  color: black;
+}
+
+.message-form {
+  width: 90%;
+  height: 10vh;
+  border: none;
+  border-radius: 30px;
+  outline: none;
+  background-color: #EEE9E9;
+  position: fixed;
+  left: 10px;
+  bottom: 10px;
+  background-size: contain;
+  display: flex;
+  align-items: center;
+  border-radius: 30px;
+  text-align: left;
+  padding: 16px;
+  font-size: 20px;
+}
+
+.fas {
+  width: 10%;
+  height: 10vh;
+  position: fixed;
+  right: 5px;
+  bottom: 10px;
+  background-color: transparent;
+  color: #A75D5D;
+  font-size: 3rem;
+}

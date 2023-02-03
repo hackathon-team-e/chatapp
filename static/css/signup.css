@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+* {
+    box-sizing: border-box;
+}
+
+#signin-container {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    position: relative;
+    width: 768px;
+    max-width: 100%;
+    min-height: 480px;
+}
+
+.signin-title {
+    font-weight: bold;
+    margin: 0;
+    font-size: 48px;
+}
+
+.form-title {
+    font-size: 64px;
+    color: #FFFFFF;
+    margin-bottom: 15px;
+}
+
+.signin-message {
+    font-size: 40px;
+    line-height: 48px;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.login-button {
+  border-radius: 30px;
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    width: 384px;
+    height: 71px;
+    border: 4px solid #FFFFFF;
+    background: transparent;
+    color: #FFFFFF;
+    display: block;
+    margin: auto;
+}
+
+.signup-button {
+  border-radius: 30px;
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    width: 384px;
+    height: 71px;
+    border: none;
+    background-color: #A75D5D;
+    color: #FFFFFF;
+    margin-top: 15px;
+}
+
+.signup-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 100px;
+    margin: 0 50px;
+    height: 100%;
+    text-align: center;
+}
+
+.login-input {
+    background-color: #eee;
+    border: none;
+    padding: 20px 15px;
+    margin: 8px 0;
+    width: 100%;
+    font-size: 24px;
+}
+
+.overlay-container {
+    position: absolute;
+    width: 544px;
+    height: 1024px;
+    left: 0px;
+    top: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 50px;
+    background: #A75D5D;
+}
+
+.overlay {
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+}
+
+.overlay-panel {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form-container {
+    position: absolute;
+    width: 896px;
+    height: 1030px;
+    left: 544px;
+    top: -6px;
+    background-image: url(../image/サインアップページ.jpeg);
+    background-repeat:no-repeat; /*背景画像の繰り返しを解除*/
+    background-size: cover; /*背景画像のサイズ指定*/
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.26);
+}
