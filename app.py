@@ -25,9 +25,9 @@ def add_channel():
         channel_description = request.form.get('channel-description')
         dbConnect.addChannel(channel_name, channel_description)
         return redirect('/')
-    # else:
-    #     error = '既に同じチャンネルが存在しています'
-    #     return render_template('error/error.html', error_message=error)
+    else:
+        error = '既に同じチャンネルが存在しています。チャンネル名を変更してください。'
+        return render_template('error/error.html', error_message=error)
 
 
 # チャンネル編集画面の表示
