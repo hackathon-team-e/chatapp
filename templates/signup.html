@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}
+  <title>signup</title>
+{% endblock %}
+{% block body %}
+  <div id="signin-container">
+      <div class="overlay-container">
+          <div class="overlay">
+              <div class="overlay-panel overlay-right">
+                  <div class="signin-title">Welcome back!</div>
+                  <p class="signin-message">already have an account?</p>
+              </div>
+              <button class="login-button">SIGN IN</button>
+          </div>
+      </div>
+      <div class="form-container signup-container">
+          <form action="#" class="signup-form">
+              <h1 class="form-title">SIGN UP</h1>
+              <input class="login-input" type="name" placeholder="Name" />
+              <input class="login-input" type="email" placeholder="Email" />
+              <input class="login-input" type="password" placeholder="Password" />
+              <button class="signup-button">SIGN UP</button>
+          </form>
+      </div>
+  </div>
+{% endblock %}

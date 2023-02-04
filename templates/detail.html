@@ -3,16 +3,38 @@
   <title>chatroom</title>
 {% endblock %}
 {% block body %}
-    <h1>{{ channel.name }}</h1>
-    <h3>{{ channel.abstract }}</h3>
-    <p><a href="/update_channel/{{ channel.id }}">チャンネル編集</a></p>
-    <p><a href="/">チャンネル一覧へ戻る</a></p>
+  <div id="chat-container">
+    <div id="channel-header">
+      <div id="channel-status">
+          <div id="channel-name">{{ channel.name }}</div>
+          <div id="channel-description">{{ channel.abstract }}</div>
+          <a href="/update_channel/{{ channel.id }}">チャンネル編集</a>
+          <a href="/">チャンネル一覧へ戻る</a>
+      </div>
+    </div>
+    <div id="messages">
+      {% for message in messages %}
+          <div class="my-messages">
+            <div class="box box-right">
+              <div class="message-content">
+                {{ message.message }}
+              </div>
+            </div>
+          </div>
+          <div class="other-messages">
+            <div class="user-name">hogeほげ</div>
+            <div class="box box-left">
+              <div class="message-content">
+                おはようございます。
+              </div>
+            </div>
+          </div>
+      {% endfor %}
+    </div>
     <form action="/message", method="post">
-      <input type="text" placeholder="メッセージを入力" class="channel-form-input" name="message">
+      <textarea type="text" placeholder="メッセージを入力" class="message-form" name="message" autofocus></textarea>
       <input type="hidden" name="channel_id" value="{{ channel.id }}">
-      <button id="add-message-confirmation-btn">投稿</button>
-    </form> 
-    {% for message in messages %}
-      <p>{{ message.message }}</p>  
-    {% endfor %}    
+      <input type="submit" value="&#xf1d8;" class="fas">
+    </form>
+  </div>
 {% endblock %}
