@@ -1,31 +1,16 @@
 {% extends 'base.html' %}
 {% block title %}
-  <title>channel</title>  
+  <title>home</title>
 {% endblock %}
-{% block body %} 
-<div class="main-container channelpage">  
-  <div class="bg-mask"></div>
-    <div class="main-content">
-     <div class="bg-image">
-    <div class="channel-title"> 
-<h1>Channels</h1>
-<h2 class="name">Name</h2>
-<h2 class="published">Published</h2>
-    
-      <a href="create.html" class="btn">チャンネル追加</a>
-   
-    <div class="pagination-container">
-      <p id="prev"><</li>
-      <ul class="pagination"></ul>
-      <p id="next">></p> 
-    </div>
-    </div>  
-    <ul class="channel-box"></ul>
-    </div>
-  </div>
-</div>
-{% for channel in channels %}
-<p class="channelname"><a href="/detail/{{ channel.id }}">{{ channel.name }}</a></p>
-<p class="delete"><a href="/delete/{{ channel.id }}">削除</a></p>
-{% endfor %}
+{% block body %}
+   <h1>チャンネル一覧</h1>
+    <form action="/", method="post">
+        <input type="text" placeholder="チャンネル名" class="channel-form-input" name="channel-title">
+        <input type="text" placeholder="チャンネルの説明" class="channel-form-input" name="channel-description">
+        <button id="add-channel-confirmation-btn">追加</button>
+    </form>
+    {% for channel in channels %}
+        <p><a href="/detail/{{ channel.id }}">{{ channel.name }}</a></p>
+        <p><a href="/delete/{{ channel.id }}">削除</a></p>
+    {% endfor %}
 {% endblock %}
