@@ -1,16 +1,12 @@
 @charset "UTF-8";
 
-head {
-    width: 100%;
-    height: 1024px;
-}
 .background-img {
     position: absolute;
     width: 896px;
     height: 1024px;
     left: 370px;
     top: 0px;
-    background-image: url(/Users/hikaru/Desktop/Hackathoncode/loginpage.jpeg);
+    background-image: url(../img/loginpage.jpeg);
     background-repeat: no-repeat;
     background-size: 896px 1024px;
 }
