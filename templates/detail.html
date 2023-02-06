@@ -3,38 +3,44 @@
   <title>chatroom</title>
 {% endblock %}
 {% block body %}
+{% include "header.html" %}
   <div id="chat-container">
-    <div id="channel-header">
-      <div id="channel-status">
-          <div id="channel-name">{{ channel.name }}</div>
-          <div id="channel-description">{{ channel.abstract }}</div>
-          <a href="/update_channel/{{ channel.id }}">チャンネル編集</a>
-          <a href="/">チャンネル一覧へ戻る</a>
+    <div class="toumei">
+      <div id="channel-header">
+        <div id="channel-status">
+            <div id="channel-name">{{ channel.name }}
+              <a href="/update_channel/{{ channel.id }}" class="fas_link_icon"></a>
+            </div>
+            <div id="channel-description">{{ channel.abstract }}</div>
+        </div>
       </div>
-    </div>
-    <div id="messages">
-      {% for message in messages %}
-          <div class="my-messages">
-            <div class="box box-right">
-              <div class="message-content">
-                {{ message.message }}
+      <div id="messages">
+        {% for message in messages %}
+            <div class="my-messages">
+              <div class="box box-right">
+                <div class="message-content">
+                  {{ message.message }}
+                </div>
               </div>
             </div>
-          </div>
-          <div class="other-messages">
-            <div class="user-name">hogeほげ</div>
-            <div class="box box-left">
-              <div class="message-content">
-                おはようございます。
+            <div class="other-messages">
+              <div class="user-name">hogeほげ</div>
+              <div class="box box-left">
+                <div class="message-content">
+                  おはようございます。
+                </div>
               </div>
             </div>
-          </div>
-      {% endfor %}
+        {% endfor %}
+      </div>
+      <form action="/message", method="post">
+        <textarea type="text" placeholder="メッセージを入力" class="message-form" name="message" autofocus></textarea>
+        <input type="hidden" name="channel_id" value="{{ channel.id }}">
+        <!-- <input type="submit" value="&#xf1d8;" class="fas"> -->
+        <button type="submit" class="button1">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </form>
     </div>
-    <form action="/message", method="post">
-      <textarea type="text" placeholder="メッセージを入力" class="message-form" name="message" autofocus></textarea>
-      <input type="hidden" name="channel_id" value="{{ channel.id }}">
-      <input type="submit" value="&#xf1d8;" class="fas">
-    </form>
   </div>
 {% endblock %}

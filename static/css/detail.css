@@ -3,16 +3,30 @@ body {
 }
 
 #chat-container{
-  height: 100vh;
   width: 100%;
+  background-image: url(../img/チャットページ.jpeg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.toumei {
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 #channel-header {
   font-size: 16px;
+  height: 8vh;
+  border-bottom: solid #EEE9E9;
+  padding: 10px;
+}
+
+#channel-name {
+  font-weight: bold;
 }
 
 #messages {
-  min-height: 50vh;
+  min-height: 100vh;
   padding-top: calc(8vh + 10px);
   padding-bottom: calc(20vh + 10px);
   overflow-y: scroll;
@@ -81,9 +95,9 @@ body {
   font-size: 20px;
 }
 
-.fas {
+.button1 i{
   width: 10%;
-  height: 10vh;
+  height: 8vh;
   position: fixed;
   right: 5px;
   bottom: 10px;
@@ -91,4 +105,30 @@ body {
   color: #A75D5D;
   font-size: 3rem;
   border: none;
+}
+
+.fa-edit::before{
+  font-family: "fontawesome";
+  content: "\f044";
+  color: #A75D5D;
+  text-decoration: none;
+}
+
+.fas_link_icon{
+	text-decoration: none;
+	color: #A75D5D;
+}
+.fas_link_icon:before{
+	display: inline-block;
+	font-size: 1.4em;
+	line-height: 1em;
+	width: 1em;
+	text-align: center;
+	font-style: normal;
+	font-variant: normal;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	content: '\f044';
 }

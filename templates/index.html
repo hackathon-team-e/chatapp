@@ -3,6 +3,7 @@
   <title>home</title>
 {% endblock %}
 {% block body %}
+{% include "header.html" %}
    <h1>チャンネル一覧</h1>
     <form action="/", method="post">
         <input type="text" placeholder="チャンネル名" class="channel-form-input" name="channel-title">
