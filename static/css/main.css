@@ -1,0 +1,80 @@
+.main-container {
+background-image: url(../img/chat.jpeg);
+position: absolute;
+height: 100%;
+width: 100%;
+}
+
+.bg-mask {
+  height: 100%;
+  background: rgba(255,255,255,0.7);
+}
+.channelpage {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn {
+  border-radius: 5px;
+  background-color: #A75D5D;
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+  position: absolute;
+  width: 160px;
+  height: 49px;
+  left: 80px;
+  top: 90px;
+}
+
+h1 {
+  position: absolute;
+  width: 160px;
+  height: 49px;
+  left: 100px;
+  top: 130px; 
+  font-size: 20px;
+}
+
+.name {
+  position: absolute;
+  width:160px;
+  height: 50px;
+  left:48%;
+  top:130px;
+  font-size: 20px;
+} 
+
+.published {
+  position: absolute;
+  width:160px;
+  height: 50px;
+  left:70%;
+  top:130px;
+  font-size: 20px;
+}
+
+.channelname {
+  position: absolute;
+  width:160px;
+  height: 20px;
+  left:50%;
+  top:160px;
+  font-size: 20px;
+}
+.delete {
+  position: absolute;
+  width:160px;
+  height: 20px;
+  left:90%;
+  top:160px;
+  font-size: 20px;
+}
+
+.pagination-container,
+.pagination {
+  display: flex;
+  position: absolute;
+  left: 50%;
+  bottom: 70px;
+}
