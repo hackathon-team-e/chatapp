@@ -3,6 +3,7 @@
   <title>update-channel</title>
 {% endblock %}
 {% block body %}
+{% include "header.html" %}
    <h1>チャンネル編集</h1>
     <form action="/update_channel/{{ channel.id }}", method="post">
         <input type="text" placeholder="チャンネル名" class="channel-form-input" name="channel-title">

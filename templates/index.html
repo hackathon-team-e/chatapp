@@ -1,27 +1,27 @@
 {% extends 'base.html' %}
+{% include "header.html" %}
 {% block title %}
   <title>channel</title>
 {% endblock %}
 {% block body %}
+{% include "header.html" %}
 <div class="main-container channelpage">  
   <div class="bg-mask"></div>
-    <div class="main-content">
-     <div class="bg-image">
-    <div class="channel-title"> 
-<h1>Channels</h1>
-<h2 class="name">Name</h2>
-<h2 class="published">Published</h2>
-    
+  <div class="main-content">
+  <div class="bg-image">
+  <div class="channel-title"> 
+    <h1>Channels</h1>
+    <h2 class="name">Name</h2>
+    <h2 class="published">Published</h2>
       <a href="create.html" class="btn">チャンネル追加</a>
-   
     <div class="pagination-container">
       <p id="prev"><</li>
       <ul class="pagination"></ul>
       <p id="next">></p> 
     </div>
-    </div>  
+  </div>  
     <ul class="channel-box"></ul>
-    </div>
+  </div>
   </div>
 </div>
 {% for channel in channels %}
