@@ -1,4 +1,5 @@
 
+from crypt import methods
 from flask import Flask, request, redirect, render_template, session, flash
 from models import dbConnect
 # from util.user import User
@@ -82,13 +83,15 @@ def add_message():
 # メッセージの削除機能
 @app.route('/delete_message', methods=['POST'])
 def delete_message():
+
     message_id = request.form.get('message_id')
-    cid =request.form.get('channel_id')
-    if message_id :
+    cid = request.form.get('channel_id')
+
+    if message_id:
         dbConnect.deleteMessage(message_id)
-    channle =dbConnect.getChannelById(cid)
+    channel =dbConnect.getChannelById(cid)
     messages =dbConnect.getMessageAll(cid)
-    return render_template('detail.html', messages=messages ,channle=channle)
+    return render_template('detail.html', messages=messages ,channel=channel)
 
 
 # おまじない
