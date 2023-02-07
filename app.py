@@ -15,7 +15,7 @@ app.permanent_session_lifetime = timedelta(days=30)
 # ユーザー登録画面の表示
 @app.route('/signup')
 def signup():
-    return render_template('registration/signup.html')
+    return render_template('signup.html')
 
 
 # ユーザー登録処理
@@ -96,8 +96,17 @@ def index():
     return render_template('index.html', channels=channels, uid=uid)
 
 
+# チャンネル作成画面の表示
+@app.route('/create-channel')
+def create_channel():
+    uid = session.get("uid")
+    if uid is None:
+        return redirect('/login')
+    
+    return render_template('create-channel.html')
+
 # チャンネル作成機能
-@app.route('/', methods=['POST'])
+@app.route('/create-channel', methods=['POST'])
 def add_channel():
     uid = session.get('uid')
     if uid is None:
@@ -107,7 +116,7 @@ def add_channel():
     channel = dbConnect.getChannelByName(channel_name)
     if channel == None:
         channel_description = request.form.get('channel-description')
-        dbConnect.addChannel(channel_name, channel_description)
+        dbConnect.addChannel(uid, channel_name, channel_description)
         return redirect('/')
     else:
         error = '既に同じチャンネルが存在しています。チャンネル名を変更してください。'
@@ -137,7 +146,7 @@ def update_channel(cid):
     channel_name = request.form.get('channel-title')
     channel_description = request.form.get('channel-description')
 
-    dbConnect.updateChannel(channel_name, channel_description, cid)
+    dbConnect.updateChannel(uid, channel_name, channel_description, cid)
     channel = dbConnect.getChannelById(cid)
     messages = dbConnect.getMessageAll(cid)
     return render_template('detail.html', messages=messages, channel=channel, uid=uid)
@@ -178,10 +187,10 @@ def add_message():
     message = request.form.get('message')
     channel_id = request.form.get('channel_id')
     if message:
-        dbConnect.createMessage(channel_id, message)
+        dbConnect.createMessage(uid, channel_id, message)
     channel = dbConnect.getChannelById(channel_id)
     messages = dbConnect.getMessageAll(channel_id)
-    return render_template('detail.html',messages=messages, channel=channel, uid=uid)
+    return render_template('detail.html', messages=messages, channel=channel, uid=uid)
 
 
 # メッセージの削除機能

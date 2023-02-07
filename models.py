@@ -83,7 +83,7 @@ class dbConnect:
 
 
     # チャンネルを追加
-    def addChannel(newChannelName, newChannelDescription):
+    def addChannel(uid, newChannelName, newChannelDescription):
         try:
             conn = DB.getConnection()
             cur = conn.cursor()
@@ -143,7 +143,7 @@ class dbConnect:
 
 
     # 新規メッセージを登録
-    def createMessage(cid, message):
+    def createMessage(uid, cid, message):
         try:
             conn = DB.getConnection()
             cur = conn.cursor()
