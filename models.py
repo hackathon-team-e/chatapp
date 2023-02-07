@@ -3,6 +3,37 @@ from util.db import DB
 
 class dbConnect:
 
+    # ユーザー登録処理
+    def createUser(user):
+        try:
+            conn = DB.getConnection()
+            cur = conn.cursor()
+            sql = "INSERT INTO users (uid, user_name, email, password) VALUES (%s, %s, %s, %s);"
+            cur.execute(sql, (user.uid, user.name, user.email, user.password))
+            conn.commit()
+        except Exception as e:
+            print(e + 'が発生しています')
+            return None
+        finally:
+            cur.close()
+
+
+    # ユーザーを取得
+    def getUser(email):
+        try:
+            conn = DB.getConnection()
+            cur = conn.cursor()
+            sql = "SELECT * FROM users WHERE email=%s;"
+            cur.execute(sql, (email))
+            user = cur.fetchone()
+            return user
+        except Exception as e:
+            print(e + 'が発生しています')
+            return None
+        finally:
+            cur.close
+
+
     # チャンネル一覧を取得
     def getChannelAll():
             try:
@@ -35,13 +66,29 @@ class dbConnect:
             cur.close()
 
 
+    # チャンネルIDを取得
+    def getChannelById(cid):
+        try:
+            conn = DB.getConnection()
+            cur = conn.cursor()
+            sql = "SELECT * FROM channels WHERE id=%s;"
+            cur.execute(sql, (cid))
+            channel = cur.fetchone()
+            return channel
+        except Exception as e:
+            print(e + 'が発生しています')
+            return None
+        finally:
+            cur.close()
+
+
     # チャンネルを追加
     def addChannel(newChannelName, newChannelDescription):
         try:
             conn = DB.getConnection()
             cur = conn.cursor()
-            sql = "INSERT INTO channels (name, abstract) VALUES (%s, %s);"
-            cur.execute(sql, (newChannelName, newChannelDescription))
+            sql = "INSERT INTO channels (uid, name, abstract) VALUES (%s, %s, %s);"
+            cur.execute(sql, (uid, newChannelName, newChannelDescription))
             conn.commit()
         except Exception as e:
             print(e + 'が発生しています')
@@ -51,12 +98,12 @@ class dbConnect:
 
 
     # チャンネル情報を更新
-    def updateChannel(newChannelName, newChannelDescription, cid):
+    def updateChannel(uid, newChannelName, newChannelDescription, cid):
         try:
             conn = DB.getConnection()
             cur = conn.cursor()
-            sql = "UPDATE channels SET name=%s, abstract=%s WHERE id=%s;"
-            cur.execute(sql, (newChannelName, newChannelDescription, cid))
+            sql = "UPDATE channels SET uid=%s, name=%s, abstract=%s WHERE id=%s;"
+            cur.execute(sql, (uid, newChannelName, newChannelDescription, cid))
             conn.commit()
         except Exception as e:
             print(e + 'が発生しています')
@@ -72,22 +119,6 @@ class dbConnect:
             sql = "DELETE FROM channels WHERE id=%s;"
             cur.execute(sql, (cid))
             conn.commit()
-        except Exception as e:
-            print(e + 'が発生しています')
-            return None
-        finally:
-            cur.close()
-
-
-    # チャンネルIDを取得
-    def getChannelById(cid):
-        try:
-            conn = DB.getConnection()
-            cur = conn.cursor()
-            sql = "SELECT * FROM channels WHERE id=%s;"
-            cur.execute(sql, (cid))
-            channel = cur.fetchone()
-            return channel
         except Exception as e:
             print(e + 'が発生しています')
             return None
@@ -116,8 +147,8 @@ class dbConnect:
         try:
             conn = DB.getConnection()
             cur = conn.cursor()
-            sql = "INSERT INTO messages(cid, message) VALUES(%s, %s)"
-            cur.execute(sql,(cid, message))
+            sql = "INSERT INTO messages(uid, cid, message) VALUES(%s, %s, %s)"
+            cur.execute(sql, (uid, cid, message))
             conn.commit()
         except Exception as e:
             print(e +'が発生しています')
@@ -125,13 +156,14 @@ class dbConnect:
         finally:
             cur.close()
 
-    # メッセージ削除
+
+    # メッセージ削除処理
     def deleteMessage(message_id):
         try:
             conn = DB.getConnection()
             cur = conn.cursor()
-            sql ="DELETE FROM messages WHERE id=%s;"
-            cur.execute(sql,(message_id))
+            sql = "DELETE FROM messages WHERE id=%s;"
+            cur.execute(sql, (message_id))
             conn.commit()
         except Exception as e:
             print(e + 'が発生しています')
