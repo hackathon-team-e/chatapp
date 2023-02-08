@@ -15,10 +15,6 @@ def index():
     channels = dbConnect.getChannelAll()
     return render_template('index.html', channels=channels)
 
-# チャンネル作成画面
-@app.route('/create_channel')
-def get_create_channel():
-    return render_template('create.html')
 
 # チャンネル作成機能
 @app.route('/', methods=['POST'])
