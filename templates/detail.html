@@ -22,6 +22,15 @@
                   {{ message.message }}
                 </div>
               </div>
+              <form action="/delete_message" method="POST" class="fas_delete_icon">
+                <input type="hidden" value="{{ channel.id }}" name="channel_id" />
+                <button
+                  class="delete-message-btn"
+                  name="message_id"
+                  value="{{ message.id }}"
+                >
+                </button>
+              </form>
             </div>
             <div class="other-messages">
               <div class="user-name">hogeほげ</div>
