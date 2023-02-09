@@ -151,6 +151,16 @@ def update_channel(cid):
     messages = dbConnect.getMessageAll(cid)
     return render_template('detail.html', messages=messages, channel=channel, uid=uid)
 
+#チャンネル削除確認画面に移動
+@app.route('/delete-channel/<cid>')
+def delete_channel_page(cid):
+    uid = session.get('uid')
+    if uid is None:
+        return redirect('/login')
+
+    cid = cid
+    channel = dbConnect.getChannelById(cid)
+    return render_template('delete-channel.html', channel=channel)
 
 # チャンネル削除機能
 @app.route('/delete/<cid>')

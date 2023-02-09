@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>delet-channel</title>
+{% endblock %}
+{% block body %}
+{% include "header.html" %}
+<button><a href="index.html">戻る</a></button>
+<p>本当に削除しますか？</p>
+<p>削除ボタンを押すとチャンネルが消えます<br>
+本当によろしいですか？</p>
+<button><a href="/delete/{{ channel.id }}">削除</a></button>
+
+{% endblock %}
+
