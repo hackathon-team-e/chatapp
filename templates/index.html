@@ -5,26 +5,26 @@
 {% endblock %}
 {% block body %}
 <div class="main-container channelpage">  
-  <div class="bg-mask"></div>
-  <div class="main-content">
-  <div class="bg-image">
-  <div class="channel-title"> 
-    <h1>Channels</h1>
-    <h2 class="name">Name</h2>
-    <h2 class="published">Published</h2>
+  <div class="bg-mask">
+    <div class="channels">Channels</div>
       <a href="/create-channel" class="btn">チャンネル追加</a>
-    <div class="pagination-container">
-      <p id="prev"><</li>
-      <ul class="pagination"></ul>
-      <p id="next">></p> 
-    </div>
-  </div>  
-    <ul class="channel-box"></ul>
-  </div>
+      <table class="table" table-striped table-hover">
+        <tr>
+          <th class="Name">Name</th>
+          <th class="description">description</th>
+        </tr>
+        {% for channel in channels %}
+        <tr>
+          <td>
+            <a href="/detail/{{ channel.id }}" class="channelname">{{ channel.name }}</a>
+          </td>
+          <td class="channel-description">{{ channel.abstract}}</td>
+          <td>
+            <a href="delete/{{ channel.id }}" class="delete">削除</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
   </div>
 </div>
-{% for channel in channels %}
-<p class="channelname"><a href="/detail/{{ channel.id }}">{{ channel.name }}</a></p>
-<p class="delete"><a href="/delete/{{ channel.id }}">削除</a></p>
-{% endfor %}
 {% endblock %}
