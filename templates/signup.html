@@ -10,17 +10,19 @@
                   <div class="signin-title">Welcome back!</div>
                   <p class="signin-message">already have an account?</p>
               </div>
-              <button class="login-button">SIGN IN</button>
+              <a class="login-button" href="/login">LOG IN</a>
           </div>
       </div>
       <div class="form-container signup-container">
-          <form action="#" class="signup-form">
-              <h1 class="form-title">SIGN UP</h1>
+        <div class="toumei-img">
+            <form action="/signup" method="POST" class="signup-form">
+              <div class="form-title">SIGN UP</div>
               <input class="login-input" type="name" placeholder="Name" />
               <input class="login-input" type="email" placeholder="Email" />
               <input class="login-input" type="password" placeholder="Password" />
-              <button class="signup-button">SIGN UP</button>
-          </form>
+              <input class="signup-button" type="submit" value="SIGN UP">
+            </form>
+        </div>
       </div>
   </div>
 {% endblock %}
