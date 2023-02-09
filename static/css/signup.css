@@ -6,11 +6,9 @@
 
 #signin-container {
     font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    position: relative;
-    width: 768px;
-    max-width: 100%;
-    min-height: 480px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
 }
 
 .signin-title {
@@ -21,8 +19,8 @@
 
 .form-title {
     font-size: 64px;
-    color: #FFFFFF;
-    margin-bottom: 15px;
+    color: #A75D5D;
+    font-weight: bold;
 }
 
 .signin-message {
@@ -33,7 +31,8 @@
 }
 
 .login-button {
-  border-radius: 30px;
+    text-decoration: none;
+    border-radius: 30px;
     font-size: 40px;
     font-weight: bold;
     letter-spacing: 1px;
@@ -42,12 +41,15 @@
     border: 4px solid #FFFFFF;
     background: transparent;
     color: #FFFFFF;
-    display: block;
+    text-align: center;
+    justify-content: center;
     margin: auto;
+    padding: 5px;
 }
 
 .signup-button {
-  border-radius: 30px;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 30px;
     font-size: 40px;
     font-weight: bold;
     letter-spacing: 1px;
@@ -57,6 +59,7 @@
     background-color: #A75D5D;
     color: #FFFFFF;
     margin-top: 15px;
+    cursor: pointer;
 }
 
 .signup-form {
@@ -71,6 +74,7 @@
 }
 
 .login-input {
+    font-family: 'Montserrat', sans-serif;
     background-color: #eee;
     border: none;
     padding: 20px 15px;
@@ -80,12 +84,8 @@
 }
 
 .overlay-container {
-    position: absolute;
-    width: 544px;
-    height: 1024px;
-    left: 0px;
-    top: 0px;
     display: flex;
+    width: 40%;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -106,14 +106,13 @@
 }
 
 .form-container {
-    position: absolute;
-    width: 896px;
-    height: 1030px;
-    left: 544px;
-    top: -6px;
-    background-image: url(../image/signups.jpeg);
-    background-repeat:no-repeat; /*背景画像の繰り返しを解除*/
-    background-size: cover; /*背景画像のサイズ指定*/
+    background-image: url(../img/signup.jpeg);
     background-position: center;
-    background-color: rgba(0, 0, 0, 0.26);
+    background-size: cover;
+    width: 60%;
+}
+
+.toumei-img {
+    background-color: rgba(255, 255, 255, 0.7);
+    height: 100%;
 }
