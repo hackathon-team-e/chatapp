@@ -1,28 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-    <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../static/css/style.css"> 
-    <title>SIGN IN</title>
-    </head>
-<body>
-  <div class="registration-wrapper login">
-    <div class="registration-main login-main">
-      <div class="background-color">
-        <div class="background-img"></div> 
-            <form class="registration-form" method="post"> 
-            <input type="text" placeholder="Email" class="inputemail" name="email" />
-            <input type="password" placeholder="Password" class="inputpassword" name="password" />
-            <button class="black">SIGN IN</button>
-              <h1 class="registration-title">SIGN IN</h1>
-              <h2 class="SIGNUP-title">Hello Friend!</h2>
-              <h3 class="SIGNUP-message">not registerd yet?</h3>
-              <a class="switch-register-mode" href="{{ url_for('signup') }}">SIGN UP</a>
-            </form>        
+{% extends 'base.html' %}
+{% block title %}
+  <title>LOG IN</title>
+{% endblock %}
+{% block body %}
+<div id="login-container">
+  <div class="login-overlay-container">
+      <div class="login-overlay">
+          <div class="login-overlay-panel overlay-right">
+              <div class="login-title">Hello Friend!</div>
+              <p class="login-message">not registerd yet?</p>
+          </div>
+          <a class="lg-signup-button" href="/signup">SIGN UP</a>
       </div>
+  </div>
+  <div class="login-form-container signup-container">
+    <div class="bg-toumei-img">
+        <form action="/login" method="POST" class="login-form">
+          <div class="login-form-title">LOG IN</div>
+          <input class="lg-login-input" type="email" placeholder="Email" name="email" />
+          <input class="lg-login-input" type="password" placeholder="Password" name="password" />
+          <input class="lg-login-button" type="submit" value="LOGIN">
+        </form>
     </div>
   </div>
-</body>    
-
-</html>
+</div>
+{% endblock %}
