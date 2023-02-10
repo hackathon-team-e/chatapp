@@ -4,7 +4,7 @@
   <title>channel</title>
 {% endblock %}
 {% block body %}
-<div class="main-container channelpage">  
+<div class="main-container channelpage">
   <div class="bg-mask">
     <div class="channels">Channels</div>
       <a href="/create-channel" class="btn">チャンネル追加</a>
@@ -20,7 +20,7 @@
           </td>
           <td class="channel-description">{{ channel.abstract}}</td>
           <td>
-            <a href="delete/{{ channel.id }}" class="delete">削除</a>
+            <a href="/delete-channel/{{ channel.id }}" class="delete">削除</a>
           </td>
         </tr>
         {% endfor %}

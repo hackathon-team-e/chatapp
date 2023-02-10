@@ -1,0 +1,92 @@
+#delete-channel-container {
+    position: relative;
+    background-image: url(../img/channel-delete.jpeg);
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#delete-channel-header {
+    font-size: 16px;
+    height: 20vh;
+    border-bottom: solid #EEE9E9;
+    padding: 10px;
+    background: #D3756B;
+    color:#EEE9E9;
+}
+
+.delete-message1{
+    position: absolute;
+    width: 100%;
+    height: 49px;  
+    position: absolute;
+    left: 37%;
+    top: 27px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 44px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+
+#delete-channel-content{
+    height: 80vh;
+}
+
+.delete-message2{
+position: absolute;
+width: 100%;
+height: 260px;
+left: 26%;
+top: 15rem;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 36px;
+line-height: 44px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #FFFFFF;
+}
+
+.delete-channel-button{
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 10px 30px;
+
+position: absolute;
+width: 242px;
+height: 71px;
+left: 600px;
+top: 500px;
+
+border: 3px solid #FFFFFF;
+border-radius: 100vh;
+
+background: transparent;
+}
+
+.delete-channel-button a{
+font-family: 'Inter';
+font-style: normal;
+font-size: 30px;
+color: #fff;
+text-decoration:none;
+transition: .3s;
+}
+
+.delete-channel-button a:hover {
+text-decoration: none;
+font-size: 31px;
+opacity: 0.7;
+color: white;
+}
