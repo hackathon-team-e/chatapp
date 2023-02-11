@@ -1,6 +1,8 @@
 .header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  right: 0;
+  left: 0;
   z-index: 999;
   height: 48px;
   padding: 5px 24px;
@@ -48,11 +50,12 @@ ul {
 	content: '\f271';
 }
 
-.fas_search_icon{
+.fas_home_icon{
 	text-decoration: none;
 	color: white;
 }
-.fas_search_icon:before{
+
+.fas_home_icon:before{
 	display: inline-block;
 	font-size: 1em;
 	line-height: 1em;
@@ -64,7 +67,7 @@ ul {
 	-webkit-font-smoothing: antialiased;
 	font-family: "Font Awesome 5 Free";
 	font-weight: 900;
-	content: '\f002';
+	content: '\f015';
 }
 
 .fas_logout_icon {

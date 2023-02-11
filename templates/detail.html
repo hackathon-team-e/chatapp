@@ -1,19 +1,18 @@
 {% extends 'base.html' %}
 {% block title %}
-  <title>chatroom</title>
 {% endblock %}
 {% block body %}
 {% include "header.html" %}
   <div id="chat-container">
-    <div class="toumei">
-      <div id="channel-header">
-        <div id="channel-status">
-            <div id="channel-name">{{ channel.name }}
-              <a href="/update_channel/{{ channel.id }}" class="fas_link_icon"></a>
-            </div>
-            <div id="channel-description">{{ channel.abstract }}</div>
-        </div>
+    <div id="channel-header">
+      <div id="channel-status">
+          <div id="channel-name">{{ channel.name }}
+            <a href="/update_channel/{{ channel.id }}" class="fas_link_icon"></a>
+          </div>
+          <div id="channel-description">{{ channel.abstract }}</div>
       </div>
+    </div>
+    <div class="toumei">
       <div id="messages">
         {% for message in messages %}
             <div class="my-messages">

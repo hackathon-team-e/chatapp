@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% block title %}
-  <title>signup</title>
 {% endblock %}
 {% block body %}
   <div id="signin-container">
@@ -20,6 +19,7 @@
               <input class="login-input" type="name" placeholder="Name" />
               <input class="login-input" type="email" placeholder="Email" />
               <input class="login-input" type="password" placeholder="Password" />
+              <input class="login-input" type="password" placeholder="PasswordConfirmation" />
               <input class="signup-button" type="submit" value="SIGN UP">
               {% with messages = get_flashed_messages() %}
                 {% if messages %}

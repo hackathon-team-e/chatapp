@@ -15,10 +15,14 @@ body {
 }
 
 #channel-header {
+  position: fixed;
+  top: 48px;
+  right: 0;
+  left: 0;
   font-size: 16px;
-  height: 8vh;
-  border-bottom: solid #EEE9E9;
   padding: 10px;
+  z-index: 3;
+  background-color: #EEE9E9;
 }
 
 #channel-name {
@@ -81,7 +85,6 @@ body {
   width: 90%;
   height: 10vh;
   border: none;
-  border-radius: 30px;
   outline: none;
   background-color: #EEE9E9;
   position: fixed;
