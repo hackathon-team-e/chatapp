@@ -26,12 +26,12 @@ def userSignup():
     password1 = request.form.get('password1')
     password2 = request.form.get('password2')
 
-    pattern = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+    pattern = "^[a-zA-Z0-9_.+-]+[@a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
 
     if name == '' or email =='' or password1 == '' or password2 == '':
-        flash('空のフォームがあるようです')
+        flash('空のフォームがあります')
     elif password1 != password2:
-        flash('二つのパスワードの値が違っています')
+        flash('パスワードが一致していません')
     elif re.match(pattern, email) is None:
         flash('正しいメールアドレスの形式ではありません')
     else:
@@ -63,18 +63,15 @@ def userLogin():
     password = request.form.get('password')
 
     if email =='' or password == '':
-        flash('空のフォームがあるようです')
+        flash('空のフォームがあります')
     else:
         user = dbConnect.getUser(email)
-        if user is None:
-            flash('このユーザーは存在しません')
+        hashPassword = hashlib.sha256(password.encode('utf-8')).hexdigest()
+        if user is None or hashPassword != user["password"]:
+            flash('EmailまたはPasswordが間違っています')
         else:
-            hashPassword = hashlib.sha256(password.encode('utf-8')).hexdigest()
-            if hashPassword != user["password"]:
-                flash('パスワードが間違っています！')
-            else:
-                session['uid'] = user["uid"]
-                return redirect('/')
+            session['uid'] = user["uid"]
+            return redirect('/')
     return redirect('/login')
 
 
@@ -151,6 +148,7 @@ def update_channel(cid):
     messages = dbConnect.getMessageAll(cid)
     return render_template('detail.html', messages=messages, channel=channel, uid=uid)
 
+
 #チャンネル削除確認画面に移動
 @app.route('/delete-channel/<cid>')
 def delete_channel_page(cid):
@@ -161,6 +159,7 @@ def delete_channel_page(cid):
     cid = cid
     channel = dbConnect.getChannelById(cid)
     return render_template('delete-channel.html', channel=channel)
+
 
 # チャンネル削除機能
 @app.route('/delete/<cid>')

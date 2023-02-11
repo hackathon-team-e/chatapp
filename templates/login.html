@@ -8,7 +8,7 @@
       <div class="login-overlay">
           <div class="login-overlay-panel overlay-right">
               <div class="login-title">Hello Friend!</div>
-              <p class="login-message">not registerd yet?</p>
+              <p class="login-message">not registered yet?</p>
           </div>
           <a class="lg-signup-button" href="/signup">SIGN UP</a>
       </div>
@@ -20,6 +20,15 @@
           <input class="lg-login-input" type="email" placeholder="Email" name="email" />
           <input class="lg-login-input" type="password" placeholder="Password" name="password" />
           <input class="lg-login-button" type="submit" value="LOGIN">
+          {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              <ul class="flashes">
+                {% for message in messages %}
+                  <li>{{ message }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          {% endwith %}
         </form>
     </div>
   </div>
