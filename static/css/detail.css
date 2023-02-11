@@ -15,10 +15,8 @@ body {
 }
 
 #channel-header {
-  position: fixed;
+  position: sticky;
   top: 48px;
-  right: 0;
-  left: 0;
   font-size: 16px;
   padding: 10px;
   z-index: 3;
