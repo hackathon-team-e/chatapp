@@ -16,10 +16,10 @@
         <div class="toumei-img">
             <form action="/signup" method="POST" class="signup-form">
               <div class="form-title">SIGN UP</div>
-              <input class="login-input" type="name" placeholder="Name" />
-              <input class="login-input" type="email" placeholder="Email" />
-              <input class="login-input" type="password" placeholder="Password" />
-              <input class="login-input" type="password" placeholder="PasswordConfirmation" />
+              <input class="login-input" type="text" name="name" placeholder="Name" />
+              <input class="login-input" type="text" name="email" placeholder="Email" />
+              <input class="login-input" type="password" name="password1" placeholder="Password" />
+              <input class="login-input" type="password" name="password2" placeholder="PasswordConfirmation" />
               <input class="signup-button" type="submit" value="SIGN UP">
               {% with messages = get_flashed_messages() %}
                 {% if messages %}
