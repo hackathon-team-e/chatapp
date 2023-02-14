@@ -25,7 +25,9 @@
                 {% if messages %}
                   <ul class="flashes">
                     {% for message in messages %}
-                      <li>{{ message }}</li>
+                      <li><i class="fas fa-exclamation-triangle"></i>
+                        {{ message }}
+                      </li>
                     {% endfor %}
                   </ul>
                 {% endif %}

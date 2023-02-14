@@ -162,3 +162,91 @@ body {
 	font-weight: 900;
 	content: '\f1f8';
 }
+
+@media screen and (max-width:480px) {
+  #messages {
+    min-height: 100vh;
+    padding-top: 0;
+    padding-bottom: calc(10vh + 10px);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    width: 90%;
+    margin: auto;
+  }
+
+  .message-content {
+    padding: 13px;
+  }
+
+  .box {
+    position: relative;
+    margin: 0;
+    border-radius: 30px;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.1em;
+    margin-top: 10px;
+    max-width: 100%;
+  }
+
+  .box-right {
+    background-color: #A75D5D;
+    margin-left: auto;
+    margin-right: 0;
+    color: #fff;
+  }
+
+  .box-left {
+    background-color: #EEE9E9;
+    margin-right: auto;
+    margin-left: 0;
+    color: black;
+  }
+
+  .fas_delete_icon {
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  .message-form {
+    width: 85%;
+    height: 10vh;
+    border: none;
+    outline: none;
+    background-color: #EEE9E9;
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+    background-size: contain;
+    display: flex;
+    align-items: center;
+    border-radius: 30px;
+    text-align: left;
+    padding: 16px;
+    font-size: 20px;
+  }
+
+  .button1 i {
+    width: 7%;
+    height: 7vh;
+    position: fixed;
+    right: 18px;
+    bottom: 10px;
+    background-color: transparent;
+    color: #A75D5D;
+    font-size: 2.5rem;
+    border: none;
+  }
+
+  #channel-header {
+    position: sticky;
+    top: 48px;
+    font-size: 12px;
+    padding: 5px;
+    z-index: 3;
+    background-color: #EEE9E9;
+  }
+}
