@@ -16,11 +16,11 @@
         {% for channel in channels %}
         <tr>
           <td>
-            <a href="/detail/{{ channel.id }}" class="channelname">{{ channel.name }}</a>
+            <a href="/detail/{{ channel.channel_id }}" class="channelname">{{ channel.channel_name }}</a>
           </td>
           <td class="channel-description">{{ channel.abstract}}</td>
           <td>
-            <a href="/delete-channel/{{ channel.id }}" class="delete">削除</a>
+            <a href="/delete-channel/{{ channel.channel_id }}" class="delete">削除</a>
           </td>
         </tr>
         {% endfor %}

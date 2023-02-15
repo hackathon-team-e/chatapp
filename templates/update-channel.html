@@ -5,10 +5,10 @@
 {% block body %}
 {% include "header.html" %}
     <h1>チャンネル編集</h1>
-    <form action="/update_channel/{{ channel.id }}", method="post">
+    <form action="/update_channel/{{ channel.channel_id }}", method="post">
     <input type="text" placeholder="チャンネル名" class="channel-form-input" name="channel-title">
     <input type="text" placeholder="チャンネルの説明" class="channel-form-input" name="channel-description">
     <button id="add-channel-confirmation-btn">更新</button>
     </form>
-    <p><a href="/detail/{{ channel.id }}">戻る</a></p>
+    <p><a href="/detail/{{ channel.channel_id }}">戻る</a></p>
 {% endblock %}
