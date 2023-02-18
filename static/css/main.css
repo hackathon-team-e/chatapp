@@ -1,3 +1,7 @@
+body {
+  overflow: hidden;
+}
+
 .main-container {
 background-image: url(../img/chat.jpeg);
 width: 100%;
@@ -34,7 +38,8 @@ background-attachment: fixed;
 .channelname {
   font-size: 20px;
   position: relative;
-  left: 340px;
+  left: 60px;
+  top: 40px;
   text-decoration: none;
   display: inline-block;
 	font-size: 1.4em;
@@ -42,36 +47,97 @@ background-attachment: fixed;
 	width: 10em;
 	text-align: center;
   overflow-wrap: break-word;
+  color: black;
 }
 
 
 .Name {
   font-size: 20px;
   position: relative;
-  left: 340px;
+  top: 40px;
+  left: 60px;
+  color: rgb(138, 135, 137);
+}
+
+.delete:before{
+	display: inline-block;
+	font-size: 1.4em;
+	line-height: 1em;
+	width: 1em;
+	text-align: center;
+	font-style: normal;
+	font-variant: normal;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	content: '\f1f8';
 }
 
 .delete {
   font-size: 20px;
   position: relative;
-  left: 600px;
+  left: 500px;
+  top: 40px;
   text-decoration: none;
+  color: #A75D5D;
+  display: inline-block;
+  width: 130px;
+  text-align: center;
 }
 
 .description {
   font-size: 20px;
   position: relative;
-  left: 500px;
+  top: 40px;
+  left: 250px;
+  color: rgb(138, 135, 137);
 }
 
 .channel-description {
   font-size: 20px;
   position: relative;
-  left: 500px;
+  left: 250px;
+  top: 40px;
   display: inline-block;
 	font-size: 1.4em;
 	line-height: 1em;
 	width: 10em;
 	text-align: center;
   overflow-wrap: break-word;
+}
+
+@media screen and (max-width:480px) {
+.main-container {
+  width: 100%;
+  background-image: none;
+}
+.channels {
+  width: 200px;
+}
+.Name {
+  width: 200px;
+  left: 20px;
+  color: rgb(138, 135, 137);
+}
+.channelname {
+  width: 200px;
+  left: 20px;
+}
+.bg-mask {
+  width: 100%;
+}
+.btn {
+  display: none;
+}
+.channel-description {
+  display: none;
+}
+.description{
+  display: none;
+}
+.delete {
+  left: 25px;
+  width: 70px;
+}
 }
