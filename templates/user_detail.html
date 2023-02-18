@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}
+{% endblock %}
+{% block body %}
+{% include "header.html" %}
+<div id="channel-header">
+  <div id="channel-status">
+      <div id="channel-name">{{ userDetail.user_name }}</div>
+      <div id="channel-description">{{ userDetail.email }}</div>
+  </div>
+</div>
+{% endblock %}

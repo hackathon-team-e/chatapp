@@ -10,7 +10,7 @@ body {
   background-attachment: fixed;
 }
 
-.toumei {
+.toumei-chat {
   background-color: rgba(255, 255, 255, 0.7);
 }
 
@@ -97,18 +97,6 @@ body {
   font-size: 20px;
 }
 
-.button1 i{
-  width: 10%;
-  height: 8vh;
-  position: fixed;
-  right: 5px;
-  bottom: 10px;
-  background-color: transparent;
-  color: #A75D5D;
-  font-size: 3rem;
-  border: none;
-}
-
 .fa-edit::before{
   font-family: "fontawesome";
   content: "\f044";
@@ -161,6 +149,18 @@ body {
 	font-family: "Font Awesome 5 Free";
 	font-weight: 900;
 	content: '\f1f8';
+}
+
+#fas-submit {
+  width: 10%;
+  height: 9vh;
+  position: fixed;
+  right: 5px;
+  bottom: 10px;
+  background-color: transparent;
+  color: #A75D5D;
+  font-size: 3rem;
+  border: none;
 }
 
 @media screen and (max-width:480px) {
@@ -229,12 +229,12 @@ body {
     font-size: 20px;
   }
 
-  .button1 i {
-    width: 7%;
-    height: 7vh;
+  .fas {
+    width: 12%;
+    /* height: 7vh;
     position: fixed;
     right: 18px;
-    bottom: 10px;
+    bottom: 10px; */
     background-color: transparent;
     color: #A75D5D;
     font-size: 2.5rem;

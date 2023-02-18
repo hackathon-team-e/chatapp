@@ -184,3 +184,19 @@ class DbConnect:
             return None
         finally:
             cur.close()
+
+    # ユーザー情報を取得
+    def getUserDetail(user_id):
+        try:
+            conn = Db.getConnection()
+            cur = conn.cursor()
+            user_id = str(user_id)
+            sql = "SELECT user_name,email FROM users WHERE user_id=%s;"
+            cur.execute(sql,(user_id))
+            userDetail = cur.fetchone()
+            return userDetail
+        except Exception as e:
+            print(e + 'が発生しています')
+            return None
+        finally:
+            cur.close()

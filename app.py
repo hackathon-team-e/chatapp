@@ -229,6 +229,16 @@ def delete_message():
     messages = DbConnect.getMessageAll(channel_id)
     return render_template('detail.html', messages=messages ,channel=channel)
 
+#マイページ表示
+@app.route('/mypage')
+def getUserDetail():
+    user_id = session.get('user_id')
+    print(user_id)
+    if user_id is None:
+        return redirect('/login')
+
+    userDetail = DbConnect.getUserDetail(user_id)
+    return render_template('user_detail.html', userDetail=userDetail, user_id=user_id)
 
 if __name__ == '__main__':
     app.run(debug=True)

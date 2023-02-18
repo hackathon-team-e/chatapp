@@ -12,7 +12,7 @@
           <div id="channel-description">{{ channel.abstract }}</div>
       </div>
     </div>
-    <div class="toumei">
+    <div class="toumei-chat">
       <div id="messages">
         {% for message in messages %}
             <div class="my-messages">
@@ -41,14 +41,17 @@
             </div>
         {% endfor %}
       </div>
-      <form action="/message", method="post">
+      <form action="/message" method="post">
         <textarea type="text" placeholder="メッセージを入力" class="message-form" name="message" autofocus></textarea>
         <input type="hidden" name="channel_id" value="{{ channel.channel_id }}">
-        <!-- <input type="submit" value="&#xf1d8;" class="fas"> -->
-        <button type="submit" class="button1">
-          <i class="fas fa-paper-plane"></i>
-        </button>
+        <input id="fas-submit" type="submit" value="&#xf1d8;" class="fas">
       </form>
     </div>
   </div>
+{% endblock %}
+{% block script %}
+  <script
+    src="../static/js/scroll-message.js"
+    type="text/javascript"
+  ></script>
 {% endblock %}
