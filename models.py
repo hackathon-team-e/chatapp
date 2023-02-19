@@ -17,8 +17,8 @@ class DbConnect:
             cur.close()
 
 
-    # ユーザーを取得
-    def getUser(email):
+    # emailからユーザーを取得
+    def getUserByEmail(email):
         try:
             conn = Db.getConnection()
             cur = conn.cursor()
@@ -31,8 +31,25 @@ class DbConnect:
             return None
         finally:
             cur.close
+    
+
+    # user_nameからユーザーを取得
+    def getUserByName(user_name):
+        try:
+            conn = Db.getConnection()
+            cur = conn.cursor()
+            sql = "SELECT * FROM users WHERE user_name=%s;"
+            cur.execute(sql, (user_name))
+            user = cur.fetchone()
+            return user
+        except Exception as e:
+            print(e + 'が発生しています')
+            return None
+        finally:
+            cur.close
 
 
+    # user_name or emailでユーザーを取得
     def getRegisteredUser(user_name, email):
         try:
             conn = Db.getConnection()
@@ -49,12 +66,12 @@ class DbConnect:
 
 
     # チャンネル一覧を取得
-    def getChannelAll():
+    def getChannelAll(user_id):
             try:
                 conn = Db.getConnection()
                 cur = conn.cursor()
-                sql = "SELECT * FROM channels;"
-                cur.execute(sql)
+                sql = "SELECT * FROM channels AS c INNER JOIN channel_users AS cu ON c.channel_id = cu.channel_id WHERE cu.user_id=%s;"
+                cur.execute(sql, (user_id))
                 channels = cur.fetchall()
                 return channels
             except Exception as e:
@@ -64,7 +81,7 @@ class DbConnect:
                 cur.close()
 
 
-    # チャンネル名を取得
+    # チャンネルをchannel_nameから取得
     def getChannelByName(channel_name):
         try:
             conn = Db.getConnection()
@@ -80,7 +97,7 @@ class DbConnect:
             cur.close()
 
 
-    # チャンネルIDを取得
+    # チャンネルをchannel_idから取得
     def getChannelById(channel_id):
         try:
             conn = Db.getConnection()
@@ -103,6 +120,20 @@ class DbConnect:
             cur = conn.cursor()
             sql = "INSERT INTO channels (user_id, channel_name, abstract) VALUES (%s, %s, %s);"
             cur.execute(sql, (user_id, newChannelName, newChannelDescription))
+            conn.commit()
+        except Exception as e:
+            print(e + 'が発生しています')
+            return None
+        finally:
+            cur.close()
+    
+    # チャンネルにユーザーを追加
+    def addChannelUser(user_id, channel_id):
+        try:
+            conn = Db.getConnection()
+            cur = conn.cursor()
+            sql = "INSERT INTO channel_users (user_id, channel_id) VALUES (%s, %s);"
+            cur.execute(sql, (user_id, channel_id))
             conn.commit()
         except Exception as e:
             print(e + 'が発生しています')
@@ -185,6 +216,7 @@ class DbConnect:
         finally:
             cur.close()
 
+
     # ユーザー情報を取得
     def getUserDetail(user_id):
         try:
@@ -195,6 +227,23 @@ class DbConnect:
             cur.execute(sql,(user_id))
             userDetail = cur.fetchone()
             return userDetail
+        except Exception as e:
+            print(e + 'が発生しています')
+            return None
+        finally:
+            cur.close()
+
+
+    # チャンネルのユーザーを取得
+    def getChannelUser(user_id):
+        try:
+            conn = Db.getConnection()
+            cur = conn.cursor()
+            user_id = str(user_id)
+            sql = "SELECT user_id FROM channel_users WHERE user_id=%s;"
+            cur.execute(sql,(user_id))
+            user_id = cur.fetchone()
+            return user_id
         except Exception as e:
             print(e + 'が発生しています')
             return None

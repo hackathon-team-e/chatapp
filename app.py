@@ -41,18 +41,16 @@ def userSignup():
         return redirect('/signup')
 
     # 同一のユーザー名、emailのユーザーが登録されているか確認
-    dbUser = DbConnect.getRegisteredUser(user_name, email)
+    db_user = DbConnect.getRegisteredUser(user_name, email)
 
-    if dbUser != None:
+    if db_user != None:
         flash('既に登録されているようです')
         return redirect('/signup')
 
+    # 同一のユーザーが存在しなければ、登録する
     user_id = uuid.uuid4()
     password = hashlib.sha256(password1.encode('utf-8')).hexdigest()
     user = User(user_id, user_name, email, password)
-
-
-    # 同一のユーザーが存在しなければ、登録する
     DbConnect.createUser(user)
     user_id = str(user_id)
     session['user_id'] = user_id
@@ -75,7 +73,7 @@ def userLogin():
         flash('空のフォームがあります')
         return redirect('/')
 
-    user = DbConnect.getUser(email)
+    user = DbConnect.getUserByEmail(email)
     hashPassword = hashlib.sha256(password.encode('utf-8')).hexdigest()
     if user is None or hashPassword != user["password"]:
         flash('EmailまたはPasswordが間違っています')
@@ -99,7 +97,7 @@ def index():
     if user_id is None:
         return redirect('/login')
 
-    channels = DbConnect.getChannelAll()
+    channels = DbConnect.getChannelAll(user_id)
     return render_template('index.html', channels=channels, user_id=user_id)
 
 
@@ -128,6 +126,10 @@ def add_channel():
 
     channel_description = request.form.get('channel-description')
     DbConnect.addChannel(user_id, channel_name, channel_description)
+
+    # 作成したチャンネルのchannel_idを取得し、user_idと紐付け
+    channel = DbConnect.getChannelByName(channel_name)
+    DbConnect.addChannelUser(user_id, channel["channel_id"])
     return redirect('/')
 
 
@@ -160,14 +162,13 @@ def update_channel(channel_id):
     return render_template('detail.html', messages=messages, channel=channel, user_id=user_id)
 
 
-# チャンネル削除確認画面にの表示
+# チャンネル削除確認画面の表示
 @app.route('/delete-channel/<channel_id>')
 def delete_channel_page(channel_id):
     user_id = session.get('user_id')
     if user_id is None:
         return redirect('/login')
 
-    channel_id = channel_id
     channel = DbConnect.getChannelById(channel_id)
     return render_template('delete-channel.html', channel=channel)
 
@@ -180,7 +181,7 @@ def delete_channel(channel_id):
         return redirect('/login')
 
     DbConnect.deleteChannel(channel_id)
-    channels = DbConnect.getChannelAll()
+    channels = DbConnect.getChannelAll(user_id)
     return render_template('index.html', channels=channels)
 
 
@@ -229,16 +230,54 @@ def delete_message():
     messages = DbConnect.getMessageAll(channel_id)
     return render_template('detail.html', messages=messages ,channel=channel)
 
-#マイページ表示
+
+# マイページ表示
 @app.route('/mypage')
 def getUserDetail():
     user_id = session.get('user_id')
-    print(user_id)
     if user_id is None:
         return redirect('/login')
 
     userDetail = DbConnect.getUserDetail(user_id)
     return render_template('user_detail.html', userDetail=userDetail, user_id=user_id)
+
+
+# ユーザー招待画面の表示
+@app.route('/user_invitation/<channel_id>')
+def userInvitation(channel_id):
+    user_id = session.get('user_id')
+    if user_id is None:
+        return redirect('/login')
+    
+    channel = DbConnect.getChannelById(channel_id)
+
+    return render_template('user-invitation.html', channel=channel)
+
+
+# ユーザー招待機能
+@app.route('/user_invitation', methods=['POST'])
+def addUser():
+    user_id = session.get('user_id')
+    if user_id is None:
+        return redirect('/login')
+    
+    channel_id = request.form.get('channel_id')
+    user_name = request.form.get('user_name')
+    user =  DbConnect.getUserByName(user_name)
+    if user is None:
+        return redirect('/')
+
+    inv_user_id = user["user_id"]
+    
+    db_user = DbConnect.getChannelUser(inv_user_id)
+    if db_user :
+        return redirect('/')
+    
+    DbConnect.addChannelUser(inv_user_id, channel_id)
+
+    channel = DbConnect.getChannelById(channel_id)
+    messages = DbConnect.getMessageAll(channel_id)
+    return render_template('detail.html', messages=messages, channel=channel, user_id=user_id)
 
 if __name__ == '__main__':
     app.run(debug=True)
