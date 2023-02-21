@@ -7,14 +7,16 @@
 
     <div id="delete-channel-header">
             <h1 class="delete-message1">本当に削除しますか？</h1>
-            <span class="delete-channel-close" ><a href="/">×</a></span>
 
-            <div id="delete-channel-container">
-                <div class="toumei">
+        <div id="delete-channel-container">
+            <div class="delete-toumei">
                 <div id="delete-channel-content">
                     <p class="delete-message2">削除ボタンを押すとチャンネルが消えます<br>
                     本当によろしいですか？</p>
-                    <button class="delete-channel-button"><a href="/delete/{{ channel.channel_id }}">削除</a></button>
+                        <div class="wrapper">
+                            <button class="delete-channel-button"><a href="/delete/{{ channel.channel_id }}">削除</a></button>
+                            <span class="delete-channel-close" ><a href="/">戻る</a></span>
+                        </div>
                 </div>
             </div>
         </div>
