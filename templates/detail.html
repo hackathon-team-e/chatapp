@@ -18,6 +18,7 @@
     <div class="toumei-chat">
       <div id="messages">
         {% for message in messages %}
+          {% if user_id == message.user_id %}
             <div class="my-messages">
               <div class="box box-right">
                 <div class="message-content">
@@ -26,22 +27,18 @@
               </div>
               <form action="/delete_message" method="POST" class="fas_delete_icon">
                 <input type="hidden" value="{{ channel.channel_id }}" name="channel_id" />
-                <button
-                  class="delete-message-btn"
-                  name="message_id"
-                  value="{{ message.message_id }}"
-                >
-                </button>
+                <button class="delete-message-btn" name="message_id" value="{{ message.message_id }}"></button>
               </form>
             </div>
+          {% endif %}
+          {% if user_id != message.user_id %}
             <div class="other-messages">
-              <div class="user-name">hogeほげ</div>
+              <div class="user-name">{{ message.user_name }}</div>
               <div class="box box-left">
-                <div class="message-content">
-                  おはようございます。
-                </div>
+                <div class="message-content">{{ message.message }}</div>
               </div>
             </div>
+          {% endif %}
         {% endfor %}
       </div>
       <form action="/message" method="post">

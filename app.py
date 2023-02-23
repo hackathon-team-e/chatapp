@@ -63,7 +63,7 @@ def login():
     return render_template('login.html')
 
 
-# ログイン機能 
+# ログイン機能
 @app.route('/login', methods=['POST'])
 def userLogin():
     email = request.form.get('email')
@@ -78,7 +78,7 @@ def userLogin():
     if user is None or hashPassword != user["password"]:
         flash('EmailまたはPasswordが間違っています')
         return redirect('/login')
-    
+
     session['user_id'] = user["user_id"]
     return redirect('/')
 
@@ -107,7 +107,7 @@ def create_channel():
     user_id = session.get("user_id")
     if user_id is None:
         return redirect('/login')
-    
+
     return render_template('create-channel.html')
 
 # チャンネル作成機能
@@ -194,7 +194,7 @@ def detail(channel_id):
 
     channel_id = channel_id
     channel = DbConnect.getChannelById(channel_id)
-    messages = DbConnect.getMessageAll(channel_id) 
+    messages = DbConnect.getMessageAll(channel_id)
     return render_template('detail.html', messages=messages, channel=channel, user_id=user_id)
 
 
@@ -228,7 +228,7 @@ def delete_message():
         DbConnect.deleteMessage(message_id)
     channel = DbConnect.getChannelById(channel_id)
     messages = DbConnect.getMessageAll(channel_id)
-    return render_template('detail.html', messages=messages ,channel=channel)
+    return render_template('detail.html', messages=messages ,channel=channel, user_id=user_id)
 
 
 # マイページ表示
@@ -248,7 +248,7 @@ def userInvitation(channel_id):
     user_id = session.get('user_id')
     if user_id is None:
         return redirect('/login')
-    
+
     channel = DbConnect.getChannelById(channel_id)
 
     return render_template('user-invitation.html', channel=channel)
@@ -260,7 +260,7 @@ def addUser():
     user_id = session.get('user_id')
     if user_id is None:
         return redirect('/login')
-    
+
     channel_id = request.form.get('channel_id')
     user_name = request.form.get('user_name')
     user =  DbConnect.getUserByName(user_name)
@@ -268,11 +268,11 @@ def addUser():
         return redirect('/')
 
     inv_user_id = user["user_id"]
-    
+
     db_user = DbConnect.getChannelUser(inv_user_id)
     if db_user :
         return redirect('/')
-    
+
     DbConnect.addChannelUser(inv_user_id, channel_id)
 
     channel = DbConnect.getChannelById(channel_id)
