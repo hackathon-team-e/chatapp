@@ -31,7 +31,7 @@ class DbConnect:
             return None
         finally:
             cur.close
-    
+
 
     # user_nameからユーザーを取得
     def getUserByName(user_name):
@@ -126,7 +126,7 @@ class DbConnect:
             return None
         finally:
             cur.close()
-    
+
     # チャンネルにユーザーを追加
     def addChannelUser(user_id, channel_id):
         try:
@@ -158,7 +158,7 @@ class DbConnect:
 
     # チャンネル削除
     def deleteChannel(channel_id):
-        try: 
+        try:
             conn = Db.getConnection()
             cur = conn.cursor()
             sql = "DELETE FROM channels WHERE channel_id=%s;"
@@ -176,7 +176,7 @@ class DbConnect:
         try:
             conn = Db.getConnection()
             cur = conn.cursor()
-            sql = "SELECT message_id, channel_id, message FROM messages WHERE channel_id = %s;"
+            sql = "SELECT m.message_id, m.user_id, m.message, u.user_name FROM messages AS m INNER JOIN users AS u ON m.user_id = u.user_id WHERE channel_id = %s ORDER BY m.created_at ASC;"
             cur.execute(sql, (channel_id))
             messages = cur.fetchall()
             return messages
