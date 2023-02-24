@@ -9,5 +9,14 @@
     <input type="text" placeholder="チャンネルの説明" class="channel-form-input" name="channel-description">
     <button id="add-channel-confirmation-btn">追加</button>
     </form>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul class="flashes">
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    {% endwith %}
     <p><a href="/">戻る</a></p>
 {% endblock %}

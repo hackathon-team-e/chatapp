@@ -71,7 +71,7 @@ def userLogin():
 
     if email =='' or password == '':
         flash('空のフォームがあります')
-        return redirect('/')
+        return redirect('/login')
 
     user = DbConnect.getUserByEmail(email)
     hashPassword = hashlib.sha256(password.encode('utf-8')).hexdigest()
@@ -118,11 +118,16 @@ def add_channel():
         return redirect('/login')
 
     channel_name = request.form.get('channel-title')
+
+    if channel_name == "":
+        flash('チャンネル名を入力してください')
+        return redirect('/create-channel')
+
     channel = DbConnect.getChannelByName(channel_name)
 
     if channel != None:
-        error = '既に同じチャンネルが存在しています。チャンネル名を変更してください。'
-        return render_template('error/error.html', error_message=error)
+        flash('既に同じチャンネルが存在しています。チャンネル名を変更してください。')
+        return redirect('/create-channel')
 
     channel_description = request.form.get('channel-description')
     DbConnect.addChannel(user_id, channel_name, channel_description)
