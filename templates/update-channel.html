@@ -4,11 +4,19 @@
 {% endblock %}
 {% block body %}
 {% include "header.html" %}
-    <h1>チャンネル編集</h1>
-    <form action="/update_channel/{{ channel.channel_id }}", method="post">
-    <input type="text" placeholder="チャンネル名" class="channel-form-input" name="channel-title">
-    <input type="text" placeholder="チャンネルの説明" class="channel-form-input" name="channel-description">
-    <button id="add-channel-confirmation-btn">更新</button>
-    </form>
-    <p><a href="/detail/{{ channel.channel_id }}">戻る</a></p>
+    <div id="create-channel-header">
+            <h1 class="create-message1">チャンネル編集</h1>
+            <span class="create-channel-close"><a href="/">×</a></span>
+                <div id="create-channel-container">
+                    <div class="create-toumei">
+                        <div id="create-channel-content">
+                            <form action="/update_channel/{{ channel.channel_id }}" method="POST" class="create-form">
+                            <input class="create-input" type="channel-title" placeholder="チャンネル名" name="channel-title" />
+                            <input class="create-input" type="channel-description" placeholder="チャンネルの説明" name="channel-description" />
+                            <button class="create-channel-button">更新</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+        </div>
 {% endblock %}

@@ -4,11 +4,19 @@
 {% endblock %}
 {% block body %}
 {% include "header.html" %}
-    <h1>ユーザー招待</h1>
-    <form action="/user_invitation", method="post">
-        <input type="text" placeholder="ユーザー名" class="" name="user_name">
-        <input type="hidden" name="channel_id" value="{{ channel.channel_id }}">
-        <button id="add-channel-confirmation-btn">招待</button>
-    </form>
-    <p><a href="/">戻る</a></p>
-{% endblock %}
+    <div id="create-channel-header">
+            <h1 class="create-message1">ユーザー招待</h1>
+            <span class="create-channel-close"><a href="/">×</a></span>
+                <div id="create-channel-container">
+                    <div class="create-toumei">
+                        <div id="create-channel-content">
+                            <form action="/user_invitation" method="POST" class="create-form">
+                            <input class="create-input" type="text" placeholder="ユーザー名" name="user_name" />
+                            <input type="hidden" name="channel_id" value="{{ channel.channel_id }}" />
+                            <button class="create-channel-button">招待</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    {% endblock %}

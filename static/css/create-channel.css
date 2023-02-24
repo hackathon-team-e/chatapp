@@ -1,13 +1,158 @@
-@charset "UTF-8";
-body {
+#create-channel-header {
+   height: 20vh;
+   width: 100%;
+   border-bottom: solid #EEE9E9;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   background: #D3756B;
+   color:#EEE9E9;
+}
+
+#create-channel-container {
    background-image: url(../img/create-channel.jpeg); /* 画像 */
-   background-color: rgba(255, 255, 255, 0.479);
+   background-color: rgba(255, 255, 255, 0.7);
    background-size: cover;               /* 全画面 */
    background-attachment: fixed;         /* 固定 */
-   background-position: center;   /* 縦横中央 */
-   
+   background-position: center;          /* 縦横中央 */
 }
-.toumei {
-   background-color: rgba(255, 255, 255, 0.7);
+
+.create-toumei {
+   background-color: rgba(255, 255, 255, 0.3);
  }
 
+ .create-message1{
+   position: relative;
+   height: 10vh;
+   width: 100%;
+   font-family: 'Inter';
+   font-style: normal;
+   font-weight: 700;
+   font-size: 50px;
+   line-height: 44px;
+   padding-top:20px;
+   text-align: center;
+}
+
+.create-channel-close{
+   position:fixed;
+   font-family: 'Inter';
+   font-style: normal;
+   font-weight: 700;
+   font-size: 50px;
+   line-height: 44px;
+   cursor: pointer;
+   top: 107px;
+   right: 50px;
+}
+
+.create-channel-close a{
+   font-family: 'Inter';
+   font-style: normal;
+   font-size: 50px;
+   color: #fff;
+   text-decoration:none;
+   transition: .3s;
+}
+
+#create-channel-content{
+   width: 100%;
+   height: 80vh;
+   flex-direction: column;
+   text-align:center;
+}
+
+.create-message2{
+   width: 100%;
+   height: 40vh;
+   font-family: 'Inter';
+   font-style: normal;
+   font-weight: 700;
+   font-size: 36px;
+   padding-top: 130px;
+   color: #646060;
+   margin: 0;
+}
+
+.create-channel-button{
+   margin-top: 80px;
+   width: 242px;
+   height: 10vh;
+   left: 600px;
+   top: 2000px;
+   border: 3px solid #FFFFFF;
+   border-radius: 100vh;
+   background: transparent;
+   font-size: 50px;
+}
+
+.create-channel-button a{
+   font-family: 'Inter';
+   font-style: normal;
+   font-size: 50px;
+   color: #fff;
+   text-decoration:none;
+   transition: .3s;
+}
+
+.create-channel-button a:hover {
+   text-decoration: none;
+   font-size: 100px;
+   opacity: 0.7;
+   color: white;
+}
+
+
+.create-input {
+   position: relative;
+   top: 30px;
+}
+
+.create-form {
+   display: outside;
+   align-items: baseline;
+   justify-content: center;
+   flex-direction: column;
+   padding: 0 100px;
+   margin: 0 50px;
+   height: 100%;
+   text-align: center;
+   background: transparent;
+}
+
+.create-input {
+   font-family: 'Montserrat', sans-serif;
+   color: black;
+   background-color: rgba(238, 238, 238, 1.0);
+   border: none;
+   padding: 20px 5px;
+   margin: 20px 0;
+   width: 100%;
+   font-size: 24px;
+}
+
+.create-channel-close{
+   width: 242px;
+   height: 10vh;
+   padding: 20px 60px;
+   left: 600px;
+   top: 1000px;
+   border: 3px solid #FFFFFF;
+   border-radius: 100vh;
+   background: transparent;
+}
+
+.create-channel-close a{
+   font-family: 'Inter';
+   font-style: normal;
+   font-size: 31px;
+   color: #fff;
+   text-decoration:none;
+   transition: .3s;
+}
+
+.create-channel-close a:hover {
+   text-decoration: none;
+   font-size: 32px;
+   opacity: 0.7;
+   color: white;
+}
