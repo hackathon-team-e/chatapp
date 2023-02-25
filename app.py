@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect, render_template, session, flash
+from flask import Flask, request, redirect, render_template, session, flash, url_for
 from models import DbConnect
 from util.user import User
 from datetime import timedelta
@@ -268,15 +268,24 @@ def addUser():
 
     channel_id = request.form.get('channel_id')
     user_name = request.form.get('user_name')
+
+    if user_name == "":
+        flash('ユーザー名を入力してください')
+        return redirect(url_for('userInvitation', channel_id=channel_id))
+
     user =  DbConnect.getUserByName(user_name)
+
     if user is None:
-        return redirect('/')
+        flash('ユーザー名が間違っています')
+        return redirect(url_for('userInvitation', channel_id=channel_id))
 
-    inv_user_id = user["user_id"]
+    inv_user_id = user['user_id']
 
-    db_user = DbConnect.getChannelUser(inv_user_id)
-    if db_user :
-        return redirect('/')
+    channel_user = DbConnect.getChannelUser(inv_user_id, channel_id)
+
+    if channel_user :
+        flash('既に招待済みです')
+        return redirect(url_for('userInvitation', channel_id=channel_id))
 
     DbConnect.addChannelUser(inv_user_id, channel_id)
 
