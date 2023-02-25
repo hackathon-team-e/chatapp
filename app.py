@@ -2,6 +2,7 @@ from flask import Flask, request, redirect, render_template, session, flash, url
 from models import DbConnect
 from util.user import User
 from datetime import timedelta
+from flask_paginate import Pagination, get_page_parameter
 import hashlib
 import uuid
 import re
@@ -98,7 +99,13 @@ def index():
         return redirect('/login')
 
     channels = DbConnect.getChannelAll(user_id)
-    return render_template('index.html', channels=channels, user_id=user_id)
+
+    # ページネーション処理
+    page = request.args.get(get_page_parameter(), type=int, default=1)
+    rows = channels[(page - 1)*10: page*10]
+    pagination = Pagination(page=page, total=len(channels), per_page=10)
+
+    return render_template('index.html', channels=rows, pagination=pagination, user_id=user_id)
 
 
 # チャンネル作成画面の表示

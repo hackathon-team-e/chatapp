@@ -27,7 +27,7 @@ background-attachment: fixed;
   text-decoration: none;
   color: white;
   position: relative;
-  bottom: 18px; 
+  bottom: 18px;
   left: 50px;
 }
 
@@ -101,6 +101,27 @@ background-attachment: fixed;
 	width: 10em;
 	text-align: center;
   overflow-wrap: break-word;
+}
+
+/* ページネーション */
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding-right: 220px;
+  padding-top: 70px;
+  list-style: none;
+  border-radius: 0.25rem;
+}
+
+.page-link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: #007bff;
+  /* background-color: #EEEEEE; */
+  /* border: 1px solid #dee2e6; */
 }
 
 @media screen and (max-width:480px) {
