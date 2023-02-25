@@ -198,6 +198,12 @@ def detail(channel_id):
         return redirect('/login')
 
     channel_id = channel_id
+
+    channel_user = DbConnect.getChannelUser(user_id, channel_id)
+    if channel_user is None:
+        flash('招待されていないチャンネルには参加できません')
+        return redirect('/')
+
     channel = DbConnect.getChannelById(channel_id)
     messages = DbConnect.getMessageAll(channel_id)
     return render_template('detail.html', messages=messages, channel=channel, user_id=user_id)

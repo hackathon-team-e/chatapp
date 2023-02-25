@@ -113,21 +113,6 @@ class DbConnect:
             cur.close()
 
 
-    # チャンネルIDを取得
-    def getChannelId(user_id):
-        try:
-            conn = Db.getConnection()
-            cur = conn.cursor()
-            sql = "SELECT channel_id FROM channel_users WHERE user_id=%s;"
-            cur.execute(sql, (user_id))
-            channel = cur.fetchone()
-            return channel
-        except Exception as e:
-            print(e + 'が発生しています')
-            return None
-        finally:
-            cur.close()
-
     # チャンネルを追加
     def addChannel(user_id, newChannelName, newChannelDescription):
         try:
