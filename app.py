@@ -192,9 +192,14 @@ def delete_channel(channel_id):
     if user_id is None:
         return redirect('/login')
 
+    channel = DbConnect.getChannelById(channel_id)
+    if user_id != channel['user_id']:
+        flash('チャンネルは作成者のみ削除可能です')
+        return redirect('/')
+
     DbConnect.deleteChannel(channel_id)
-    channels = DbConnect.getChannelAll(user_id)
-    return render_template('index.html', channels=channels)
+
+    return redirect('/')
 
 
 # メッセージ一覧機能

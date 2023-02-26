@@ -20,10 +20,11 @@
             <a href="/detail/{{ channel.channel_id }}" class="channelname">{{ channel.channel_name }}</a>
           </td>
           <td class="channel-description">{{ channel.abstract}}</td>
+        {% if channel.user_id  == user_id%}
           <td>
-            <a href="/delete-channel/{{ channel.channel_id }}" class="delete">
-            </a>
+            <a href="/delete-channel/{{ channel.channel_id }}" class="delete"></a>
           </td>
+        {% endif %}
         </tr>
         {% endfor %}
         {% with messages = get_flashed_messages() %}

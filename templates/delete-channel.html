@@ -4,17 +4,17 @@
 {% endblock %}
 {% block body %}
 {% include "header.html" %}
-
     <div id="delete-channel-header">
-            <h1 class="delete-message1">本当に削除しますか？</h1>
-
+            <h1 class="delete-message1">チャンネル削除</h1>
         <div id="delete-channel-container">
             <div class="delete-toumei">
                 <div id="delete-channel-content">
-                    <p class="delete-message2">削除ボタンを押すとチャンネルが消えます<br>
+                    <p class="delete-message2">『{{ channel.channel_name }}』を削除します。<br>
                     本当によろしいですか？</p>
                         <div class="wrapper">
-                            <button class="delete-channel-button"><a href="/delete/{{ channel.channel_id }}">削除</a></button>
+                            <button class="delete-channel-button">
+                                <a href="/delete/{{ channel.channel_id }}">削除</a>
+                            </button>
                             <span class="delete-channel-close" ><a href="/">戻る</a></span>
                         </div>
                 </div>
