@@ -1,25 +1,19 @@
-{% extends 'base.html' %}
-{% block title %}
-    <title>delete-channel</title>
-{% endblock %}
-{% block body %}
-{% include "header.html" %}
-    <div id="delete-channel-header">
-            <h1 class="delete-message1">チャンネル削除</h1>
-        <div id="delete-channel-container">
-            <div class="delete-toumei">
-                <div id="delete-channel-content">
-                    <p class="delete-message2">『{{ channel.channel_name }}』を削除します。<br>
-                    本当によろしいですか？</p>
-                        <div class="wrapper">
-                            <button class="delete-channel-button">
-                                <a href="/delete/{{ channel.channel_id }}">削除</a>
-                            </button>
-                            <span class="delete-channel-close" ><a href="/">戻る</a></span>
-                        </div>
+<div id="delete-channel-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="modal-title">チャンネル削除</span>
+            <span class="modalClose" id="delete-page-close-btn">×</span>
+        </div>
+        <div class="modal-img-delete">
+            <div class="toumei-chat">
+                <div class="modal-body">
+                    <p class="modal-delete-message">チャンネル「{{ channel.channel_name }}」を削除します。<br>
+                        本当によろしいですか？</p>
+                    <button id="delete-btn" class="modal-delete-channel-button">
+                        <a href="/delete/{{ channel.channel_id }}">削除</a>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
-{% endblock %}
-
+</div>

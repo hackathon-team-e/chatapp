@@ -1,15 +1,16 @@
 {% extends 'base.html' %}
-{% include "header.html" %}
 {% block title %}
   <title>channel</title>
 {% endblock %}
 {% block body %}
+{% include "header.html" %}
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <div class="main-container channelpage">
   <div class="bg-mask">
     <div class="channels">Channels</div>
-      <a href="/create-channel" class="btn">チャンネル追加</a>
-      <table class="table" table-striped table-hover">
+      <button id="add-button" class="btn">チャンネル追加</button>
+      {% include "create-channel.html" %}
+      <table class="table">
         <tr>
           <th class="Name">Name</th>
           <th class="description">Description</th>
@@ -21,9 +22,6 @@
           </td>
           <td class="channel-description">{{ channel.abstract}}</td>
         {% if channel.user_id  == user_id%}
-          <td>
-            <a href="/delete-channel/{{ channel.channel_id }}" class="delete"></a>
-          </td>
         {% endif %}
         </tr>
         {% endfor %}
@@ -40,4 +38,10 @@
       {{ pagination.links }}
   </div>
 </div>
+{% endblock %}
+{% block script %}
+  <script
+    src="../static/js/modal.js"
+    type="text/javascript"
+  ></script>
 {% endblock %}

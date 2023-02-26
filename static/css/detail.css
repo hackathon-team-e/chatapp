@@ -29,8 +29,8 @@ body {
 
 #messages {
   min-height: 100vh;
-  padding-top: calc(8vh + 10px);
-  padding-bottom: calc(20vh + 10px);
+  padding-top: calc(24vh + 10px);
+  padding-bottom: calc(10vh + 20px);
   overflow-y: scroll;
   overflow-x: hidden;
   display: flex;
@@ -107,6 +107,7 @@ body {
 .fas_link_icon{
 	text-decoration: none;
 	color: #A75D5D;
+  font-weight: bold;
 }
 .fas_link_icon:before{
 	display: inline-block;
@@ -128,12 +129,57 @@ body {
   margin-right: 30px;
 }
 
+.fas_invite_icon{
+	text-decoration: none;
+	color: #A75D5D;
+  background-color: transparent;
+  border: none;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.fas_invite_icon:before{
+  justify-content: right;
+	font-size: 1.4em;
+	line-height: 1em;
+	width: 1em;
+	text-align: center;
+	font-style: normal;
+	font-variant: normal;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	content: '\f234';
+}
+
+.fas_userall_icon{
+	text-decoration: none;
+	color: #A75D5D;
+}
+.fas_userall_icon:before{
+	display: inline-block;
+	font-size: 1.4em;
+	line-height: 1em;
+	width: 1em;
+	text-align: center;
+	font-style: normal;
+	font-variant: normal;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+	content: '\f0c0';
+  margin-right: 6px;
+}
+
 .delete-message-btn{
 	text-decoration: none;
 	color: #A75D5D;
   background-color: transparent;
   border: none;
   margin-top: 5px;
+  font-weight: bold;
 }
 
 .delete-message-btn:before{

@@ -1,31 +1,17 @@
-{% extends 'base.html' %}
-{% block title %}
-    <title>create-channel</title>
-{% endblock %}
-{% block body %}
-{% include "header.html" %}
-    <div id="create-channel-header">
-        <h1 class="create-message1">チャンネルを追加</h1>
-        <span class="create-channel-close"><a href="/">×</a></span>
-            <div id="create-channel-container">
-                <div class="create-toumei">
-                    <div id="create-channel-content">
-                        <form action="/create-channel" method="POST" class="create-form">
-                        <input class="create-input" type="channel-title" placeholder="チャンネル名" name="channel-title" />
-                        <input class="create-input" type="channel-description" placeholder="チャンネルの説明" name="channel-description" />
-                        <button class="create-channel-button">追加</button>
-                        </form>
-                        {% with messages = get_flashed_messages() %}
-                        {% if messages %}
-                            <ul class="flashes">
-                            {% for message in messages %}
-                                <li>{{ message }}</li>
-                            {% endfor %}
-                            </ul>
-                        {% endif %}
-                        {% endwith %}
-                    </div>
-                </div>
+<div id="add-channel-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="modal-title">チャンネル追加</span>
+            <span class="modalClose" id="add-page-close-btn">×</span>
+        </div>
+        <div class="modal-img">
+            <div class="toumei-chat">
+                <form class="modal-body" action="/create-channel" method="POST">
+                    <input type="text" placeholder="チャンネル名" class="channel-form-input" name="channel-title">
+                    <input type="text" placeholder="チャンネルの説明" class="channel-form-input" name="channel-description">
+                    <button id="update-btn">追加</button>
+                </form>
             </div>
+        </div>
     </div>
-{% endblock %}
+</div>

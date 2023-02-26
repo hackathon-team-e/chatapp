@@ -20,14 +20,14 @@ background-attachment: fixed;
   width: 100px;
 }
 
-.btn {
+#add-button {
   border-radius: 20px;
   background-color: #A75D5D;
   padding: 10px;
   text-decoration: none;
   color: white;
   position: relative;
-  bottom: 18px;
+  bottom: 24px;
   left: 50px;
 }
 

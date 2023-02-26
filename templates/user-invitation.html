@@ -1,31 +1,26 @@
-{% extends 'base.html' %}
-{% block title %}
-    <title>user-invitation</title>
-{% endblock %}
-{% block body %}
-{% include "header.html" %}
-    <div id="create-channel-header">
-            <h1 class="create-message1">ユーザー招待</h1>
-            <span class="create-channel-close"><a href="/">×</a></span>
-                <div id="create-channel-container">
-                    <div class="create-toumei">
-                        <div id="create-channel-content">
-                            <form action="/user_invitation" method="POST" class="create-form">
-                            <input class="create-input" type="text" placeholder="ユーザー名" name="user_name" />
-                            <input type="hidden" name="channel_id" value="{{ channel.channel_id }}" />
-                            <button class="create-channel-button">招待</button>
-                            </form>
-                            {% with messages = get_flashed_messages() %}
-                            {% if messages %}
-                                <ul class="flashes">
-                                {% for message in messages %}
-                                    <li>{{ message }}</li>
-                                {% endfor %}
-                                </ul>
-                            {% endif %}
-                            {% endwith %}
-                        </div>
-                    </div>
-                </div>
+<div id="invite-channel-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="modal-title">ユーザー招待</span>
+            <span class="modalClose" id="invite-page-close-btn">×</span>
         </div>
-    {% endblock %}
+        <div class="modal-img">
+            <div class="toumei-chat">
+                <form action="/user_invitation" method="POST" class="modal-body">
+                    <input class="channel-form-input" type="text" placeholder="一致するユーザー名を入力" name="user_name" />
+                    <input type="hidden" name="channel_id" value="{{ channel.channel_id }}" />
+                    <button id="invite-btn">招待</button>
+                </form>
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul class="flashes">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+                {% endwith %}
+            </div>
+        </div>
+    </div>
+</div>
