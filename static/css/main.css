@@ -104,6 +104,12 @@ background-attachment: fixed;
 }
 
 /* ページネーション */
+nav {
+  position: relative;
+    top: 85px;
+    left: 430px;
+}
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -111,6 +117,11 @@ background-attachment: fixed;
   padding-top: 70px;
   list-style: none;
   border-radius: 0.25rem;
+
+  text-align: center;
+  font-family: "Ubuntu", sans-serif;
+  display: inline-flex;
+  position: relative;
 }
 
 .page-link {
@@ -122,7 +133,58 @@ background-attachment: fixed;
   color: #007bff;
   /* background-color: #EEEEEE; */
   /* border: 1px solid #dee2e6; */
+
+
+  line-height: 41px;
+  height: 42px;
+  width: 42px;
+  padding: 0;
+  margin: 0 5px;
+  border: none;
+  border-radius: 50% !important;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+  background-color: #6d2e46;
+  font-size: 20px;
+  font-weight: 600;
+  z-index: 1;
+  transition: all 0.3s ease 0s;
 }
+
+.pagination li a.page-link:hover,
+.pagination li a.page-link:focus,
+.pagination li.active a.page-link:hover,
+.pagination li.active a.page-link {
+  color: #222;
+  background: transparent;
+  box-shadow: 0 0 10px #a26769;
+}
+.pagination li a.page-link:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  border: 5px solid #a26769;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-radius: 50%;
+  opacity: 0;
+  transform: rotate(155deg);
+  transition: all 0.3s ease 0s;
+}
+.pagination li a.page-link:hover:before,
+.pagination li a.page-link:focus:before,
+.pagination li.active a.page-link:before {
+  opacity: 1;
+  transform: rotate(-15deg);
+}
+
+
+
 
 @media screen and (max-width:480px) {
 .main-container {
@@ -156,5 +218,17 @@ background-attachment: fixed;
 .delete {
   left: 25px;
   width: 70px;
+}
+
+#ページネーション
+.pagination {
+  font-size: 0;
+  border: none;
+  display: inline-block;
+}
+.pagination li {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 0 10px;
 }
 }
