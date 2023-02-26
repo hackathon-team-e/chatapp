@@ -248,3 +248,19 @@ class DbConnect:
             return None
         finally:
             cur.close()
+
+
+    # チャンネルのユーザー一覧を取得
+    def getChannelUserAll(channel_id):
+        try:
+            conn = Db.getConnection()
+            cur = conn.cursor()
+            sql = "SELECT u.user_name FROM users AS u INNER JOIN channel_users AS cu ON u.user_id = cu.user_id WHERE channel_id=%s;"
+            cur.execute(sql,(channel_id))
+            users = cur.fetchall()
+            return users
+        except Exception as e:
+            print(e + 'が発生しています')
+            return None
+        finally:
+            cur.close()

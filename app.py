@@ -311,5 +311,17 @@ def addUser():
     messages = DbConnect.getMessageAll(channel_id)
     return render_template('detail.html', messages=messages, channel=channel, user_id=user_id)
 
+
+# チャンネルユーザー一覧機能
+@app.route('/channel_users/<channel_id>')
+def userList(channel_id):
+    user_id = session.get('user_id')
+    if user_id is None:
+        return redirect('/login')
+
+    users = DbConnect.getChannelUserAll(channel_id)
+
+    return render_template('channel-users.html', users=users, channel_id=channel_id)
+
 if __name__ == '__main__':
     app.run(debug=True)

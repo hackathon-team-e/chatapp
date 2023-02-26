@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}
+{% endblock %}
+{% block body %}
+{% include "header.html" %}
+<div class="userdetail-container bg-cover bg-fixed bg-center" style="background-image: url(../static/img/channel-delete.jpeg)">
+    <div class="userdetail-toumei">
+        <div class="text-2xl pt-5 pl-24 font-bold">
+            ユーザー一覧
+        </div>
+        <div class="border-solid border-2 border-gray-500 mx-32 my-8 flex-col text-center items-center justify-center">
+        <table class="flex justify-center">
+            <tbody class="text-xl text-left">
+                {% for user in users %}
+                <tr class="font-medium">
+                    <td class="px-4 py-2">
+                        <ul>
+                            <li>{{ user.user_name }}</li>
+                        </ul>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
