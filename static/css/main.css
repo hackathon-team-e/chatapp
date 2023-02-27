@@ -1,3 +1,7 @@
+body {
+  overflow: hidden;
+}
+
 .main-container {
 background-image: url(../img/chat.jpeg);
 width: 100%;
@@ -20,38 +24,51 @@ background-attachment: fixed;
   width: 100px;
 }
 
-#add-button {
+.btn {
   border-radius: 20px;
   background-color: #A75D5D;
   padding: 10px;
   text-decoration: none;
-  color: white;
+  color: #fff;
   position: relative;
   bottom: 24px;
   left: 50px;
 }
 
+.btn:hover {
+  background: #fff;
+  color: #A75D5D;
+}
+
 .channelname {
-  font-size: 20px;
   position: relative;
-  left: 60px;
+  left: 250px;
   top: 40px;
   text-decoration: none;
   display: inline-block;
-	font-size: 1.4em;
-	line-height: 1em;
-	width: 10em;
+	font-size: 1.7em;
+	width: 14em;
+  height: 1.5em;
 	text-align: center;
-  overflow-wrap: break-word;
   color: black;
+  transition-duration: .4s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: rgba(167,93,93,0.7);
+  border-radius: 20px;
+}
+
+.channelname:hover {
+  transform: scale(1.1);
 }
 
 
 .Name {
-  font-size: 20px;
+  font-size: 2em;
   position: relative;
   top: 40px;
-  left: 60px;
+  left: 250px;
   color: rgb(138, 135, 137);
 }
 
@@ -70,37 +87,45 @@ background-attachment: fixed;
 	content: '\f1f8';
 }
 
+.delete:hover {
+  transform: scale(1.1);
+}
+
 .delete {
   font-size: 20px;
   position: relative;
-  left: 500px;
+  left: 580px;
   top: 40px;
   text-decoration: none;
   color: #A75D5D;
   display: inline-block;
   width: 130px;
   text-align: center;
+  transition-duration: .4s;
 }
 
 .description {
-  font-size: 20px;
+  font-size: 2em;
   position: relative;
   top: 40px;
-  left: 250px;
+  left: 400px;
   color: rgb(138, 135, 137);
+  
 }
 
 .channel-description {
-  font-size: 20px;
+  font-size: 1.7em;
   position: relative;
-  left: 250px;
+  left: 400px;
   top: 40px;
   display: inline-block;
 	font-size: 1.4em;
-	line-height: 1em;
-	width: 10em;
+	width: 14em;
+  height: 1.5em;
 	text-align: center;
-  overflow-wrap: break-word;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* ページネーション */
