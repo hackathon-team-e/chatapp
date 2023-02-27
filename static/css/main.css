@@ -129,16 +129,16 @@ background-attachment: fixed;
 }
 
 /* ページネーション */
-nav {
+/* nav {
   position: relative;
     top: 85px;
     left: 430px;
-}
+} */
 
 .pagination {
-  display: flex;
-  justify-content: center;
-  padding-right: 220px;
+  /* display: flex;
+  justify-content: center; */
+  padding-left: 530px;
   padding-top: 70px;
   list-style: none;
   border-radius: 0.25rem;
@@ -156,10 +156,6 @@ nav {
   margin-left: -1px;
   line-height: 1.25;
   color: #007bff;
-  /* background-color: #EEEEEE; */
-  /* border: 1px solid #dee2e6; */
-
-
   line-height: 41px;
   height: 42px;
   width: 42px;
