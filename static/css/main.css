@@ -16,14 +16,6 @@ background-attachment: fixed;
   height: 100vh;
 }
 
-.channels {
-  font-size: 24px;
-  position: relative;
-  top: 50px;
-  left: 58px;
-  width: 100px;
-}
-
 .btn {
   border-radius: 20px;
   background-color: #A75D5D;
@@ -31,7 +23,7 @@ background-attachment: fixed;
   text-decoration: none;
   color: #fff;
   position: relative;
-  bottom: 24px;
+  top: 20px;
   left: 50px;
 }
 
@@ -110,7 +102,6 @@ background-attachment: fixed;
   top: 40px;
   left: 400px;
   color: rgb(138, 135, 137);
-  
 }
 
 .channel-description {
