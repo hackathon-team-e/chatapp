@@ -7,13 +7,13 @@
     <div id="channel-header">
       <div id="channel-status">
           <div id="channel-name">{{ channel.channel_name }}
-            <button id="edit-button" class="fas_link_icon">編集</button>
+            <button id="edit-button" class="fas_link_icon"> 編集</button>
             {% include "update-channel.html" %}
-            <button id="delete-button" class="delete-message-btn">削除</button>
+            <button id="delete-button" class="delete-message-btn"> 削除</button>
             {% include "delete-channel.html" %}
-            <button id="invite-button" class="fas_invite_icon">招待</button>
+            <button id="invite-button" class="fas_invite_icon"> 招待</button>
             {% include "user-invitation.html" %}
-            <a class="fas_userall_icon" href="/channel_users/{{ channel.channel_id }}">ユーザー一覧</a>
+            <a class="fas_userall_icon" href="/channel_users/{{ channel.channel_id }}"> ユーザー一覧</a>
           </div>
           <div id="channel-description">{{ channel.abstract }}</div>
       </div>
