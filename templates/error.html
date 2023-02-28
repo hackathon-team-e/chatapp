@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}
+{% endblock %}
+{% block body %}
+<div class="error-container">
+  <div class="toumei-error">
+    <div class="error-content">
+      <p class="error-message"><i class="fas fa-exclamation-triangle"></i>{{ error_message }}</p>
+      <button class="error-button" onclick="history.back()">戻る</button>
+    </div>
+  </div>
+</div>
+{% endblock %}

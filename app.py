@@ -127,14 +127,14 @@ def add_channel():
     channel_name = request.form.get('channel-title')
 
     if channel_name == "":
-        flash('チャンネル名を入力してください')
-        return redirect('/create-channel')
+        error = 'チャンネル名を入力してください。'
+        return render_template('error.html',error_message=error)
 
     channel = DbConnect.getChannelByName(channel_name)
 
     if channel != None:
-        flash('既に同じチャンネルが存在しています。チャンネル名を変更してください。')
-        return redirect('/create-channel')
+        error = '既に同じチャンネルが存在しています。チャンネル名を変更してください。'
+        return render_template('error.html',error_message=error)
 
     channel_description = request.form.get('channel-description')
     DbConnect.addChannel(user_id, channel_name, channel_description)
@@ -168,6 +168,16 @@ def update_channel(channel_id):
     channel_name = request.form.get('channel-title')
     channel_description = request.form.get('channel-description')
 
+    if channel_name == "":
+        error = 'チャンネル名を入力してください。'
+        return render_template('error.html',error_message=error)
+
+    channel = DbConnect.getChannelByName(channel_name)
+
+    if channel != None:
+        error = '既に同じチャンネルが存在しています。チャンネル名を変更してください。'
+        return render_template('error.html',error_message=error)
+
     DbConnect.updateChannel(user_id, channel_name, channel_description, channel_id)
     channel = DbConnect.getChannelById(channel_id)
     messages = DbConnect.getMessageAll(channel_id)
@@ -194,8 +204,8 @@ def delete_channel(channel_id):
 
     channel = DbConnect.getChannelById(channel_id)
     if user_id != channel['user_id']:
-        flash('チャンネルは作成者のみ削除可能です')
-        return redirect('/')
+        error = 'チャンネル削除は作成者のみ削除可能です。'
+        return render_template('error.html',error_message=error)
 
     DbConnect.deleteChannel(channel_id)
 
@@ -288,22 +298,22 @@ def addUser():
     user_name = request.form.get('user_name')
 
     if user_name == "":
-        flash('ユーザー名を入力してください')
-        return redirect(url_for('userInvitation', channel_id=channel_id))
+        error = 'ユーザー名を入力してください。'
+        return render_template('error.html',error_message=error)
 
     user =  DbConnect.getUserByName(user_name)
 
     if user is None:
-        flash('ユーザー名が間違っています')
-        return redirect(url_for('userInvitation', channel_id=channel_id))
+        error = 'ユーザー名が間違っています。'
+        return render_template('error.html',error_message=error)
 
     inv_user_id = user['user_id']
 
     channel_user = DbConnect.getChannelUser(inv_user_id, channel_id)
 
     if channel_user :
-        flash('既に招待済みです')
-        return redirect(url_for('userInvitation', channel_id=channel_id))
+        error = '既に招待済みです。'
+        return render_template('error.html',error_message=error)
 
     DbConnect.addChannelUser(inv_user_id, channel_id)
 

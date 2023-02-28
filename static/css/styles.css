@@ -3,7 +3,8 @@
 @import "main.css";
 @import "header.css";
 @import "login.css";
-@import "delete-channel.css";
-@import "create-channel.css";
+/* @import "delete-channel.css";
+@import "create-channel.css"; */
 @import "user_detail.css";
-@import "modal.css"
+@import "modal.css";
+@import "error.css";
