@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}
+{% endblock %}
+{% block body %}
+{% include "header.html" %}
+<div class="userdetail-container bg-cover bg-fixed bg-center" style="background-image: url(../static/img/channel-delete.jpeg)">
+  <div class="userdetail-toumei">
+    <div class="text-2xl pt-5 pl-24 font-bold">MyPage</div>
+    <div class="border-solid border-2 border-gray-500 mx-32 my-8 flex-col text-center items-center justify-center">
+      <table class="flex justify-center">
+        <tbody class="text-xl text-left">
+          <tr class="font-medium">
+            <th class="px-4 py-2">ユーザー名</th>
+            <th class="px-4 py-2">{{ userDetail.user_name }}</th>
+          </tr>
+          <tr>
+            <th class="px-4 py-2">メールアドレス</th>
+            <th class="px-4 py-2">{{ userDetail.email }}</th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <button class="userdetail-button" onclick="history.back()">戻る</button>
+  </div>
+</div>
+{% endblock %}

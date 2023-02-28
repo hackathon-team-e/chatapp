@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block title %}
+{% endblock %}
+{% block body %}
+{% include "header.html" %}
+  <div id="chat-container">
+    <div id="channel-header">
+      <div id="channel-status">
+          <div id="channel-name">{{ channel.channel_name }}
+            <button id="edit-button" class="fas_link_icon"> 編集</button>
+            {% include "update-channel.html" %}
+            <button id="delete-button" class="delete-message-btn"> 削除</button>
+            {% include "delete-channel.html" %}
+            <button id="invite-button" class="fas_invite_icon"> 招待</button>
+            {% include "user-invitation.html" %}
+            <button id="fas_userAll_button" class="fas_userAll_icon"> ユーザー一覧</button>
+            {% include "channel-users.html" %}
+          </div>
+          <div id="channel-description">{{ channel.abstract }}</div>
+      </div>
+    </div>
+    <div class="toumei-chat">
+      <div id="messages">
+        {% for message in messages %}
+          {% if user_id == message.user_id %}
+            <div class="my-messages">
+              <div class="box box-right">
+                <div class="message-content">
+                  {{ message.message }}
+                </div>
+              </div>
+              <form action="/delete_message" method="POST" class="fas_delete_icon">
+                <input type="hidden" value="{{ channel.channel_id }}" name="channel_id" />
+                <button class="delete-message-btn" name="message_id" value="{{ message.message_id }}"></button>
+              </form>
+            </div>
+          {% endif %}
+          {% if user_id != message.user_id %}
+            <div class="other-messages">
+              <div class="user-name">{{ message.user_name }}</div>
+              <div class="box box-left">
+                <div class="message-content">{{ message.message }}</div>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <form action="/message" method="post">
+        <textarea type="text" placeholder="メッセージを入力" class="message-form" name="message" autofocus></textarea>
+        <input type="hidden" name="channel_id" value="{{ channel.channel_id }}">
+        <input id="fas-submit" type="submit" value="&#xf1d8;" class="fas">
+      </form>
+    </div>
+  </div>
+{% endblock %}
+{% block script %}
+  <script
+    src="../static/js/scroll-message.js"
+    type="text/javascript"
+  ></script>
+  <script
+    src="../static/js/editModal.js"
+    type="text/javascript"
+  ></script>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}
+  <title>LOG IN</title>
+{% endblock %}
+{% block body %}
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<div id="login-container">
+  <div class="login-overlay-container">
+      <div class="login-overlay">
+          <div class="login-overlay-panel overlay-right">
+              <div class="login-title">Hello Friend!</div>
+              <p class="login-message">not registered yet?</p>
+          </div>
+          <a class="lg-signup-button" href="/signup">SIGN UP</a>
+      </div>
+  </div>
+  <div class="login-form-container signup-container">
+    <div class="bg-toumei-img">
+        <form action="/login" method="POST" class="login-form">
+          <div class="login-form-title">LETAT</div>
+          <input class="lg-login-input" type="email" placeholder="Email" name="email" />
+          <input class="lg-login-input" type="password" placeholder="Password" name="password" />
+          <input class="lg-login-button" type="submit" value="LOGIN">
+          {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              <ul class="flashes">
+                {% for message in messages %}
+                  <li><i class="fas fa-exclamation-triangle"></i>
+                  {{ message }}
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          {% endwith %}
+        </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

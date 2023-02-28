@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}
+{% endblock %}
+{% block body %}
+  <div id="signin-container">
+      <div class="overlay-container">
+          <div class="overlay">
+              <div class="overlay-panel overlay-right">
+                  <div class="signin-title">Welcome back!</div>
+                  <p class="signin-message">already have an account?</p>
+              </div>
+              <a class="login-button" href="/login">LOG IN</a>
+          </div>
+      </div>
+      <div class="form-container signup-container">
+        <div class="toumei-img">
+            <form action="/signup" method="POST" class="signup-form">
+              <div class="form-title">LETAT</div>
+              <input class="login-input" type="text" name="user_name" placeholder="Name" />
+              <input class="login-input" type="text" name="email" placeholder="Email" />
+              <input class="login-input" type="password" name="password1" placeholder="Password" />
+              <input class="login-input" type="password" name="password2" placeholder="PasswordConfirmation" />
+              <input class="signup-button" type="submit" value="SIGN UP">
+              {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                  <ul class="flashes">
+                    {% for message in messages %}
+                      <li><i class="fas fa-exclamation-triangle"></i>
+                        {{ message }}
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              {% endwith %}
+            </form>
+        </div>
+      </div>
+  </div>
+{% endblock %}

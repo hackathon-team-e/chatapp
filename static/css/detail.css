@@ -1,0 +1,302 @@
+body {
+  margin: 0;
+}
+
+#chat-container{
+  width: 100%;
+  background-image: url(../img/chatpage.jpeg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.toumei-chat {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+#channel-header {
+  position: sticky;
+  top: 48px;
+  font-size: 16px;
+  padding: 10px;
+  z-index: 3;
+  background-color: #EEE9E9;
+}
+
+#channel-name {
+  font-weight: bold;
+  display: flex;
+}
+
+#messages {
+  min-height: 100vh;
+  padding-top: calc(24vh + 10px);
+  padding-bottom: calc(10vh + 20px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: 80%;
+  margin: auto;
+}
+
+.my-messages {
+  display: flex;
+  flex-direction: column;
+}
+
+.box {
+  position: relative;
+  margin: 0;
+  border-radius: 30px;
+  font-size: 20px;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  margin-top: 10px;
+  max-width: 100%;
+}
+
+.box-right {
+  background-color: #A75D5D;
+  margin-left: auto;
+  margin-right: 30px;
+  color: #fff;
+}
+
+.message-content{
+  padding: 20px;
+}
+
+.other-messages {
+  display: flex;
+  flex-flow: column;
+}
+
+.box-left {
+  background-color: #EEE9E9;
+  margin-right: auto;
+  margin-left: 30px;
+  color: black;
+}
+
+.message-form {
+  width: 90%;
+  height: 10vh;
+  border: none;
+  outline: none;
+  background-color: #EEE9E9;
+  position: fixed;
+  left: 10px;
+  bottom: 10px;
+  background-size: contain;
+  display: flex;
+  align-items: center;
+  border-radius: 30px;
+  text-align: left;
+  padding: 16px;
+  font-size: 20px;
+}
+
+.fa-edit::before{
+  font-family: "fontawesome";
+  content: "\f044";
+  color: #A75D5D;
+  text-decoration: none;
+}
+
+.fas_link_icon{
+	text-decoration: none;
+	color: #A75D5D;
+  font-weight: bold;
+  margin-left: 10px;
+}
+.fas_link_icon:before{
+	display: inline-block;
+	font-size: 1.4em;
+	line-height: 1em;
+	width: 1em;
+	text-align: center;
+	font-style: normal;
+	font-variant: normal;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	content: '\f044';
+}
+
+.fas_delete_icon {
+  margin-left: auto;
+  margin-right: 30px;
+}
+
+.fas_invite_icon{
+	text-decoration: none;
+	color: #A75D5D;
+  background-color: transparent;
+  border: none;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.fas_invite_icon:before{
+  justify-content: right;
+	font-size: 1.4em;
+	line-height: 1em;
+	width: 1em;
+	text-align: center;
+	font-style: normal;
+	font-variant: normal;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	content: '\f234';
+}
+
+.fas_userAll_icon{
+	text-decoration: none;
+	color: #A75D5D;
+  margin-left: 10px;
+  font-weight: bold;
+}
+.fas_userAll_icon:before{
+	display: inline-block;
+	font-size: 1.4em;
+	line-height: 1em;
+	width: 1em;
+	text-align: center;
+	font-style: normal;
+	font-variant: normal;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+	content: '\f0c0';
+  margin-right: 6px;
+}
+
+.delete-message-btn{
+	text-decoration: none;
+	color: #A75D5D;
+  background-color: transparent;
+  border: none;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.delete-message-btn:before{
+  justify-content: right;
+	font-size: 1.4em;
+	line-height: 1em;
+	width: 1em;
+	text-align: center;
+	font-style: normal;
+	font-variant: normal;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	content: '\f1f8';
+}
+
+#fas-submit {
+  width: 10%;
+  height: 9vh;
+  position: fixed;
+  right: 5px;
+  bottom: 10px;
+  background-color: transparent;
+  color: #A75D5D;
+  font-size: 3rem;
+  border: none;
+}
+
+@media screen and (max-width:480px) {
+  #messages {
+    min-height: 100vh;
+    padding-top: 0;
+    padding-bottom: calc(10vh + 10px);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    width: 90%;
+    margin: auto;
+  }
+
+  .message-content {
+    padding: 13px;
+  }
+
+  .box {
+    position: relative;
+    margin: 0;
+    border-radius: 30px;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.1em;
+    margin-top: 10px;
+    max-width: 100%;
+  }
+
+  .box-right {
+    background-color: #A75D5D;
+    margin-left: auto;
+    margin-right: 0;
+    color: #fff;
+  }
+
+  .box-left {
+    background-color: #EEE9E9;
+    margin-right: auto;
+    margin-left: 0;
+    color: black;
+  }
+
+  .fas_delete_icon {
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  .message-form {
+    width: 85%;
+    height: 10vh;
+    border: none;
+    outline: none;
+    background-color: #EEE9E9;
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+    background-size: contain;
+    display: flex;
+    align-items: center;
+    border-radius: 30px;
+    text-align: left;
+    padding: 16px;
+    font-size: 20px;
+  }
+
+  .fas {
+    width: 12%;
+    /* height: 7vh;
+    position: fixed;
+    right: 18px;
+    bottom: 10px; */
+    background-color: transparent;
+    color: #A75D5D;
+    font-size: 2.5rem;
+    border: none;
+  }
+
+  #channel-header {
+    position: sticky;
+    top: 48px;
+    font-size: 12px;
+    padding: 5px;
+    z-index: 3;
+    background-color: #EEE9E9;
+  }
+}

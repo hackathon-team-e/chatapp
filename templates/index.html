@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}
+  <title>channel</title>
+{% endblock %}
+{% block body %}
+{% include "header.html" %}
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<div class="main-container channelpage">
+  <div class="bg-mask">
+      <button id="add-button" class="btn"><i class="fas fa-calendar-plus"></i> チャンネル追加</button>
+      {% include "create-channel.html" %}
+      <table class="table">
+        <tr>
+          <th class="Name">Name</th>
+          <th class="description">Description</th>
+        </tr>
+        {% for channel in channels %}
+        <tr>
+          <td>
+            <a href="/detail/{{ channel.channel_id }}" class="channelname">{{ channel.channel_name }}</a>
+          </td>
+          <td class="channel-description">{{ channel.abstract}}</td>
+        {% if channel.user_id  == user_id%}
+        {% endif %}
+        </tr>
+        {% endfor %}
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul class="flashes">
+          {% for message in messages %}
+              <li>{{ message }}</li>
+          {% endfor %}
+          </ul>
+        {% endif %}
+        {% endwith %}
+      </table>
+      {{ pagination.links }}
+  </div>
+</div>
+{% endblock %}
+{% block script %}
+  <script
+    src="../static/js/modal.js"
+    type="text/javascript"
+  ></script>
+{% endblock %}

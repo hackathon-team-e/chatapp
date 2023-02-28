@@ -1,0 +1,142 @@
+/* モーダルの処理 */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(240, 240, 240, 0.9);
+}
+
+.modal-content {
+  background-color: #f4f4f4;
+  margin: 150px;
+  width: 80%;
+  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.17);
+  animation-name: modalopen;
+  animation-duration: 0.5s;
+}
+
+@keyframes modalopen {
+  from {opacity: 0}
+  to {opacity: 1}
+}
+
+.modal-header {
+  background: #A75D5D;
+  display: flex;
+  padding-right: 15px;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.modal-title {
+  font-size: 24px;
+  margin: 0 auto;
+  color: white;
+  font-weight: bold;
+}
+
+.modalClose {
+  font-size: 2rem;
+  color: white;
+}
+
+.modalClose:hover {
+  cursor: pointer;
+}
+
+.modal-img {
+  background-image: url(../img/create-channel.jpeg);
+  background-position: center;
+  background-size: cover;
+}
+
+.modal-img-delete {
+  background-image: url(../img/channel-delete.jpeg);
+  background-position: center;
+  background-size: cover;
+}
+
+.modal-img-edit {
+  background-image: url(../img/edit-channel.jpeg);
+  background-position: center;
+  background-size: cover;
+}
+
+.modal-body {
+  padding: 10px 20px;
+  color: white;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.channel-form-input {
+  margin: 16px;
+  padding: 15px 10px;
+  background-color: #eee;
+  border: none;
+  font-size: 16px;
+  color: black;
+}
+
+#update-btn {
+  border-radius: 30px;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  width: 30%;
+  height: 70px;
+  border: none;
+  background-color: #A75D5D;
+  color: #FFFFFF;
+  margin: 20px auto;
+  cursor: pointer;
+}
+
+#invite-btn {
+  border-radius: 30px;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  width: 30%;
+  height: 70px;
+  border: none;
+  background-color: #A75D5D;
+  color: #FFFFFF;
+  margin: 40px auto;
+  cursor: pointer;
+}
+
+.modal-delete-channel-button {
+  border-radius: 30px;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  width: 30%;
+  height: 70px;
+  border: none;
+  background-color: #A75D5D;
+  color: #FFFFFF;
+  margin: 20px auto;
+  cursor: pointer;
+}
+
+.modal-delete-message {
+  margin: 56px auto;
+  color: #A75D5D;
+  font-size: 24px;
+}
+
+.modal-body-channel-users {
+  font-size: large;
+  padding: 20px 20px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}

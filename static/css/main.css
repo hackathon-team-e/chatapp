@@ -1,0 +1,231 @@
+.main-container {
+background-image: url(../img/chat.jpeg);
+width: 100%;
+height: calc(100vh - 48px);
+background-position: center;
+background-size: cover;
+background-attachment: fixed;
+overflow: hidden;
+}
+
+.bg-mask {
+  background: rgba(255,255,255,0.7);
+  height: 100vh;
+}
+
+.btn {
+  border-radius: 20px;
+  background-color: #A75D5D;
+  padding: 10px;
+  text-decoration: none;
+  color: #fff;
+  position: relative;
+  top: 20px;
+  left: 50px;
+}
+
+.btn:hover {
+  background: #fff;
+  color: #A75D5D;
+}
+
+.channelname {
+  position: relative;
+  left: 250px;
+  top: 40px;
+  text-decoration: none;
+  display: inline-block;
+	font-size: 1.7em;
+	width: 14em;
+  height: 1.5em;
+	text-align: center;
+  color: black;
+  transition-duration: .4s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: rgba(167,93,93,0.7);
+  border-radius: 20px;
+}
+
+.channelname:hover {
+  transform: scale(1.1);
+}
+
+
+.Name {
+  font-size: 2em;
+  position: relative;
+  top: 40px;
+  left: 250px;
+  color: rgb(138, 135, 137);
+}
+
+.delete:before{
+	display: inline-block;
+	font-size: 1.4em;
+	line-height: 1em;
+	width: 1em;
+	text-align: center;
+	font-style: normal;
+	font-variant: normal;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	content: '\f1f8';
+}
+
+.delete:hover {
+  transform: scale(1.1);
+}
+
+.delete {
+  font-size: 20px;
+  position: relative;
+  left: 580px;
+  top: 40px;
+  text-decoration: none;
+  color: #A75D5D;
+  display: inline-block;
+  width: 130px;
+  text-align: center;
+  transition-duration: .4s;
+}
+
+.description {
+  font-size: 2em;
+  position: relative;
+  top: 40px;
+  left: 400px;
+  color: rgb(138, 135, 137);
+}
+
+.channel-description {
+  font-size: 1.7em;
+  position: relative;
+  left: 400px;
+  top: 40px;
+  display: inline-block;
+	font-size: 1.4em;
+	width: 14em;
+  height: 1.5em;
+	text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ページネーション */
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding-top: 70px;
+  list-style: none;
+  border-radius: 0.25rem;
+  text-align: center;
+}
+
+.page-link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: #007bff;
+  line-height: 41px;
+  height: 42px;
+  width: 42px;
+  padding: 0;
+  margin: 0 5px;
+  border: none;
+  border-radius: 50% !important;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+  background-color: #6d2e46;
+  font-size: 20px;
+  font-weight: 600;
+  z-index: 0;
+  transition: all 0.3s ease 0s;
+}
+
+.pagination li a.page-link:hover,
+.pagination li a.page-link:focus,
+.pagination li.active a.page-link:hover,
+.pagination li.active a.page-link {
+  color: #222;
+  background: transparent;
+  box-shadow: 0 0 10px #a26769;
+}
+.pagination li a.page-link:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  border: 5px solid #a26769;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-radius: 50%;
+  opacity: 0;
+  transform: rotate(155deg);
+  transition: all 0.3s ease 0s;
+}
+.pagination li a.page-link:hover:before,
+.pagination li a.page-link:focus:before,
+.pagination li.active a.page-link:before {
+  opacity: 1;
+  transform: rotate(-15deg);
+}
+
+@media screen and (max-width:480px) {
+.main-container {
+  width: 100%;
+  background-image: none;
+}
+.channels {
+  width: 200px;
+}
+.Name {
+  width: 200px;
+  left: 20px;
+  color: rgb(138, 135, 137);
+}
+.channelname {
+  width: 200px;
+  left: 20px;
+}
+.bg-mask {
+  width: 100%;
+}
+.btn {
+  display: none;
+}
+.channel-description {
+  display: none;
+}
+.description{
+  display: none;
+}
+.delete {
+  left: 25px;
+  width: 70px;
+}
+
+.pagination {
+  font-size: 0;
+  border: none;
+  display: inline-block;
+  /* position: fixed;
+  bottom: 36px;
+  left: 27%; */
+}
+.pagination li {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 0 10px;
+}
+}

@@ -1,0 +1,150 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  height: 48px;
+  padding: 5px 24px;
+  background-color: #A75D5D;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo {
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+}
+
+.header-list {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+ul {
+  list-style: none;
+}
+
+.fas_add_icon {
+  text-decoration: none;
+	color: white;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all  0.2s ease;
+}
+
+.fas_add_icon:before{
+	display: inline-block;
+	font-size: 1em;
+	line-height: 1em;
+	width: 1em;
+	text-align: center;
+	font-style: normal;
+	font-variant: normal;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	content: '\f271';
+}
+
+.fas_add_icon:hover {
+  font-size: 1.2em;
+	line-height: 1.2em;
+	width: 1.2em;
+}
+
+.fas_home_icon{
+	text-decoration: none;
+	color: white;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all  0.2s ease;
+}
+
+.fas_home_icon:before{
+	display: inline-block;
+	font-size: 1em;
+	line-height: 1em;
+	width: 1em;
+	text-align: center;
+	font-style: normal;
+	font-variant: normal;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	content: '\f015';
+}
+
+.fas_home_icon:hover {
+  font-size: 1.2em;
+	line-height: 1.2em;
+	width: 1.2em;
+}
+
+.fas_logout_icon {
+  text-decoration: none;
+	color: white;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all  0.2s ease;
+}
+
+.fas_logout_icon:before{
+	display: inline-block;
+	font-size: 1em;
+	line-height: 1em;
+	width: 1em;
+	text-align: center;
+	font-style: normal;
+	font-variant: normal;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	content: '\f2f5';
+}
+
+.fas_logout_icon:hover {
+  font-size: 1.2em;
+	line-height: 1.2em;
+	width: 1.2em;
+}
+
+.fas_user_icon {
+  text-decoration: none;
+	color: white;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all  0.2s ease;
+}
+
+.fas_user_icon:before{
+	display: inline-block;
+	font-size: 1em;
+	line-height: 1em;
+	width: 1em;
+	text-align: center;
+	font-style: normal;
+	font-variant: normal;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	content: '\f007';
+}
+
+.fas_user_icon:hover {
+  font-size: 1.2em;
+	line-height: 1.2em;
+	width: 1.2em;
+}

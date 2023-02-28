@@ -1,0 +1,17 @@
+<div id="update-channel-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="modal-title">チャンネル編集</span>
+            <span class="modalClose" id="update-page-close-btn">×</span>
+        </div>
+        <div class="modal-img-edit">
+            <div class="toumei-chat">
+                <form class="modal-body" action="/update_channel/{{ channel.channel_id }}" method="post">
+                    <input type="text" placeholder="チャンネル名" class="channel-form-input" name="channel-title" value="{{ channel.channel_name }}">
+                    <input type="text" placeholder="チャンネルの説明" class="channel-form-input" name="channel-description" value="{{ channel.abstract }}">
+                    <button id="update-btn">更新</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

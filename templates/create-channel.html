@@ -1,0 +1,17 @@
+<div id="add-channel-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="modal-title">チャンネル追加</span>
+            <span class="modalClose" id="add-page-close-btn">×</span>
+        </div>
+        <div class="modal-img">
+            <div class="toumei-chat">
+                <form class="modal-body" action="/create-channel" method="POST">
+                    <input type="text" placeholder="チャンネル名" class="channel-form-input" name="channel-title">
+                    <input type="text" placeholder="チャンネルの説明" class="channel-form-input" name="channel-description">
+                    <button id="update-btn">追加</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
