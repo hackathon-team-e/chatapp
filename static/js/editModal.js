@@ -44,6 +44,7 @@ addEventListener('click', (e) => {
   }
 })
 
+// 招待画面のモーダル
 const inviteButtonOpen = document.getElementById('invite-button');
 const inviteButtonClose = document.getElementById('invite-page-close-btn');
 
@@ -61,5 +62,26 @@ addEventListener('click', (e) => {
   //modalはモーダル全体を構成する要素なのでターゲットをモーダルにする
   if (e.target == inviteModal) {
     inviteModal.style.display = 'none';
+  }
+})
+
+// ユーザー一覧のモーダル
+const fasUserAllButtonOpen = document.getElementById('fas_userAll_button');
+const fasUserAllButtonClose = document.getElementById('channel-users-close-btn');
+
+//モーダル表示したいHTMLをclass="modal"にしないといけない
+const fasUserAllModal = document.getElementById('channel-users-modal');
+//ボタンがクリックされたとき
+fasUserAllButtonOpen.addEventListener('click',() => {
+  fasUserAllModal.style.display = 'block';
+})
+//バツ印がクリックされたとき
+fasUserAllButtonClose.addEventListener('click', () => {
+  fasUserAllModal.style.display = 'none';
+})
+addEventListener('click', (e) => {
+  //modalはモーダル全体を構成する要素なのでターゲットをモーダルにする
+  if (e.target == fasUserAllModal) {
+    fasUserAllModal.style.display = 'none';
   }
 })

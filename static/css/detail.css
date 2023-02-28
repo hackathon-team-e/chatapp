@@ -155,12 +155,13 @@ body {
 	content: '\f234';
 }
 
-.fas_userall_icon{
+.fas_userAll_icon{
 	text-decoration: none;
 	color: #A75D5D;
   margin-left: 10px;
+  font-weight: bold;
 }
-.fas_userall_icon:before{
+.fas_userAll_icon:before{
 	display: inline-block;
 	font-size: 1.4em;
 	line-height: 1em;

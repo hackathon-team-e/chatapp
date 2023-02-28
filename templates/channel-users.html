@@ -1,27 +1,22 @@
-{% extends 'base.html' %}
-{% block title %}
-{% endblock %}
-{% block body %}
-{% include "header.html" %}
-<div class="userdetail-container bg-cover bg-fixed bg-center" style="background-image: url(../static/img/channel-delete.jpeg)">
-    <div class="userdetail-toumei">
-        <div class="text-2xl pt-5 pl-24 font-bold">
-            ユーザー一覧
+<div id="channel-users-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="modal-title">ユーザー一覧</span>
+            <span class="modalClose" id="channel-users-close-btn">×</span>
         </div>
-        <div class="border-solid border-2 border-gray-500 mx-32 my-8 flex-col text-center items-center justify-center">
-        <table class="flex justify-center">
-            <tbody class="text-xl text-left">
-                {% for user in users %}
-                <tr class="font-medium">
-                    <td class="px-4 py-2">
-                        <ul>
-                            <li>{{ user.user_name }}</li>
-                        </ul>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <div class="modal-img-delete">
+            <div class="toumei-chat">
+                <div class="modal-body-channel-users">
+                    <ul>
+                    {% for user in users %}
+                        <li>{{ user.user_name }}</li>
+                    {% endfor %}
+                    </ul>
+                    <!-- <input class="channel-form-input" type="text" placeholder="一致するユーザー名を入力" name="user_name" />
+                    <input type="hidden" name="channel_id" value="{{ channel.channel_id }}" />
+                    <button id="invite-btn">招待</button> -->
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-{% endblock %}

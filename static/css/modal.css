@@ -132,3 +132,11 @@
   color: #A75D5D;
   font-size: 24px;
 }
+
+.modal-body-channel-users {
+  font-size: large;
+  padding: 20px 20px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}

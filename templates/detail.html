@@ -13,7 +13,8 @@
             {% include "delete-channel.html" %}
             <button id="invite-button" class="fas_invite_icon"> 招待</button>
             {% include "user-invitation.html" %}
-            <a class="fas_userall_icon" href="/channel_users/{{ channel.channel_id }}"> ユーザー一覧</a>
+            <button id="fas_userAll_button" class="fas_userAll_icon"> ユーザー一覧</button>
+            {% include "channel-users.html" %}
           </div>
           <div id="channel-description">{{ channel.abstract }}</div>
       </div>

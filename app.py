@@ -226,9 +226,11 @@ def detail(channel_id):
         flash('招待されていないチャンネルには参加できません')
         return redirect('/')
 
+    channel_users = DbConnect.getChannelUserAll(channel_id)
+
     channel = DbConnect.getChannelById(channel_id)
     messages = DbConnect.getMessageAll(channel_id)
-    return render_template('detail.html', messages=messages, channel=channel, user_id=user_id)
+    return render_template('detail.html', messages=messages, channel=channel, user_id=user_id, users=channel_users)
 
 
 # メッセージの作成機能
